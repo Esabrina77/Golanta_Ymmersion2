@@ -1,0 +1,330 @@
+{
+    "categories":[
+        {
+            "image":"/assets/icons/comedy.png",
+            "id": "1",
+            "name": "Comedie",
+            "films": [
+             { 
+                "id":"1a",
+                "titre": "Free Guy",
+                "auteur": "Shawn Levy",
+                "synopsis": "Un caissier de banque découvre qu'il est en réalité un personnage dans un jeu vidéo à monde ouvert et décide de devenir le héros de sa propre histoire, qu'il va réécrire par lui-même.",
+                "image":"/assets/image/comedie/Freeguy.jpg",
+                "note": "4.7",
+                "realese_date": "le 13 Aout 2021"
+               
+            },
+            {       "id":"1b",
+                    "titre": "Bullet Train ",
+                    "auteur": "David Leitch",
+                    "synopsis": "Cinq tueurs à gages se retrouvent dans un train à grande vitesse voyageant entre Tokyo et Morioka et ne faisant que très peu d'arrêts. Les cinq criminels vont découvrir qu'ils sont tous liés par leur mission, se demandent qui va en sortir vivant et s'interrogent sur ce qui les attend à la gare d'arrivée.",
+                    "image":"/assets/image/comedie/bullettrain.jpg",
+                    "note": "4.3",
+                    "realese_date": "le 5 Aout 2022"
+                },   
+                {
+                    "id":"1c",
+                    "titre": "Epouse-Moi mon pote",
+                    "auteur": "Tarek Boudali",
+                    "synopsis": "Yassine, jeune étudiant marocain, vient à Paris faire ses études d'architecture avec un visa étudiant. Suite à un événement malencontreux, il rate son examen, perd son visa et se retrouve en France en situation irrégulière. Pour y remédier, il se marie avec son meilleur ami. Alors qu'il pense que tout est réglé, un inspecteur tenace se met sur leur dos pour vérifier qu'il ne s'agit pas d'un mariage blanc.",
+                    "image":"/assets/image/comedie/epousemoimonpote.jpg",
+                    "note": "4.0",
+                    "realese_date": "le 25 octobre 2017"
+                }
+            ]
+           },
+
+
+   {
+     "image":"/assets/icons/scienceFic.png",
+     "id": "2",
+     "name": "Science-Fiction",
+     "films":[
+{      
+       "id":"2a",
+        "titre": "STAR WARS: la menace fantôme ",
+         "auteur": "George Lucas",
+         "synopsis": " Avant de devenir un célèbre chevalier Jedi, et bien avant de se révéler l'âme la plus noire de la galaxie, Anakin Skywalker est un jeune esclave sur la planète Tatooine. La Force est déjà puissante en lui et il est un remarquable pilote de Podracer. Le maître Jedi Qui-Gon Jinn le découvre et entrevoit alors son immense potentiel. Pendant ce temps, l'armée de droïdes de l'insatiable Fédération du Commerce a envahi Naboo dans le cadre d'un plan secret des Sith visant à accroître leur pouvoir.",
+         "image":"/assets/image/science_Fiction/starWars_ep1.jpg",
+         "note": "4.5",
+         "realese_date": "13 octobre 1999"
+},
+   
+
+ {  
+    "id":"2b",
+    "titre": "STAR WARS: L'attaque des clones",
+     "auteur": "George Lucas",
+     "synopsis": " Depuis le blocus de la planète Naboo, la République, gouvernée par le Chancelier Palpatine, connaît une crise. Un groupe de dissidents, mené par le sombre Jedi comte Dooku, manifeste son mécontentement. Le Sénat et la population intergalactique se montrent pour leur part inquiet. Certains sénateurs demandent à ce que la République soit dotée d'une armée pour empêcher que la situation ne se détériore. Padmé Amidala, devenue sénatrice, est menacée par les séparatistes et échappe à un attentat.",
+     "image":"/assets/image/science_Fiction/starWars_ep2.jpg",
+     "note": "4.5",
+     "realese_date": "le 17 mai 2002"
+ },
+
+ { 
+    "id":"2c",   
+ "titre": "STAR WARS: La revanche des Sith",
+ "auteur": "George Lucas & Lucasfilm Ltd",
+ "synopsis": " La Guerre des Clones fait rage. Une franche hostilité oppose désormais le Chancelier Palpatine au Conseil Jedi. Anakin Skywalker, jeune Chevalier Jedi pris entre deux feux, hésite sur la conduite à tenir. Séduit par la promesse d'un pouvoir sans précédent, tenté par le côté obscur de la Force, il prête allégeance au maléfique Darth Sidious et devient Dark Vador.Les Seigneurs Sith s'unissent alors pour préparer leur revanche, qui commence par l'extermination des Jedi.",
+ "image":"/assets/image/science_Fiction/starWars_ep3.jpg",
+ "note": "4.5",
+ "realese_date": "le 18 mai 2005"
+},
+
+{ 
+    "id":"2d",   
+"titre": "STAR WARS: Un nouvel espoir ",
+"auteur": "George Lucas & Lucasfilm Ltd",
+"synopsis":"La guerre civile fait rage entre l'Empire galactique et l'Alliance rebelle. Capturée par les troupes de choc de l'Empereur menées par le sombre et impitoyable Dark Vador, la princesse Leia Organa dissimule les plans de l'Etoile Noire.",
+"image":"/assets/image/science_Fiction/starWars_ep4.jpg",
+"note": "4.5",
+"realese_date": "le 19 octobre 1977"
+},
+
+{
+    "id":"2e",
+    "titre": "STAR WARS: l'empire contre attaque",
+"auteur": "Irvin Kershner",
+"synopsis": "Malgré la destruction de l'Étoile noire, l'Empire maintient son emprise sur la galaxie, et poursuit sans relâche sa lutte contre l'Alliance rebelle. Basés sur la planète glacée de Hoth, les rebelles essuient un assaut des troupes impériales.",
+"image":"/assets/image/science_Fiction/starWars_ep5.jpg",
+"note": "4.5",
+"realese_date": "le 20 Aout 1980"
+},
+
+{ 
+    "id":"2f",
+"titre": "STAR WARS: Le retour du Jedi ",
+"auteur": "Richard Marquand",
+"synopsis": "L'empire galactique est plus puissant que jamais : la construction de la nouvelle arme, l'étoile de la mort, menace l'univers tout entier... Han Solo est remis à l'ignoble contrebandier Jabba le Hutt par le chasseur de primes Boba Fett. après l'échec d'une première tentative d'évasion menée par la princesse Leia, également arrêtée par Jabba, Luke Skywalker et Lando parviennent à libérer leurs amis.",
+"image":"/assets/image/science_Fiction/starWars_ep6.jpg",
+"note": "4.5",
+"realese_date": "le 19 octobre 1983"
+},
+
+{
+    "id":"2g",
+    "titre": "STAR WARS: Le réveil de la force  ",
+"auteur": "J. J. Abrams",
+"synopsis": "Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l'oppression. Les membres de l'Alliance rebelle, devenus la Résistance,combattent les vestiges de l'Empire réunis sous la bannière du Premier Ordre.Un mystérieux guerrier, Kylo Ren, semble vouer un culte à Dark Vador." ,
+"image":"/assets/image/science_Fiction/starWars_ep7.jpg",
+"note": "4.5",
+"realese_date": "16 decembre 2015"
+},
+
+{ 
+    "id":"2h",
+"titre": "STAR WARS: Les derniers jedi ",
+"auteur": "Rian Johnson",
+"synopsis": "Le Premier Ordre étend ses tentacules aux confins de l'univers, poussant la Résistance dans ses retranchements. Impossible de se sauver à la vitesse de la lumière avec cet ennemi continuellement aux trousses. Cela n'empêche pas Finn et ses camarades de tenter d'identifier une brèche chez leur adversaire." ,
+"image":"/assets/image/science_Fiction/starWars_ep8.jpg",
+"note": "4.5",
+"realese_date": "13 decembre 2017"
+},
+
+{
+    "id":"2i",
+    "titre": "STAR WARS: L'Ascension de Skywalker  ",
+"auteur": ": J. J. Abrams",
+"synopsis": "Un an a passé depuis que Kylo Ren a tué Snoke, le Leader suprême et pris sa place. Bien que largement décimée, la Résistance est prête à renaître de ses cendres. Rey, Poe, Leia et leurs alliés se préparent à reprendre le combat. Mais ils vont devoir faire face à un vieil ennemi : l'empereur Palpatine." ,
+"image":"/assets/image/science_Fiction/starWars_ep9.jpg",
+"note": "4.5",
+"realese_date": "18 décembre 2019"
+}
+
+         
+     ]
+   },
+
+   {
+    "image":"/assets/icons/musicale.png",
+    "id": "3",
+    "name": "Comedie Musicale",
+    "films": [
+     { 
+        "id":"3a",
+        "titre": "LA LA LAND",
+        "auteur": "Damien Chazelle",
+        "synopsis": " Au coeur de Los Angeles, une actrice en devenir prénamemée Mia sert des cafés entre des auditions. De son côté, Sebastian, passionné de jazz, joue du piano dans des clubs miteux pour assurer sa subsistance. Tous deux sont bien loin de la vie rêvée à laquelle ils aspirent, mais ils développent des sentiments amoureux l'un pour l'autre.",
+        "image":"/assets/image/comMusic/lalaland.jpg",
+        "note": "4.6",
+        "realese_date": "le 25 janvier 2017"
+       
+    },
+    {       "id":"3b",
+            "titre": "8 MILES",
+            "auteur": "Curtis Hanson",
+            "synopsis": " A Detroit, en 1995, Jimmy Smith Jr. a des rêves plein la tête, mais il lui manque encore les mots pour les exprimer. Sa vie d'adolescent se déroule entre banlieue blanche et quartiers noirs, le long de cette ligne de démarcation que l'on nameme 8 Mile Road. En dépit de tous ses efforts, Jimmy n'a jamais franchi cette barrière symbolique et continue d'accumuler les déboires familiaux, professionnels et sentimentaux. Un jour, il participe à un clash, une joute oratoire de rappeurs.",
+            "image":"/assets/image/comMusic/8mile.jpg",
+            "note": "3.5",
+            "realese_date": "le 26 février 2003"
+        }
+    ]
+   },
+
+   {
+    "image":"/assets/icons/guerre.png",
+    "id": "4",
+    "name": "Guerre",
+    "films": [
+     { 
+        "id":"4a",
+        "titre": "Inglourious Basterds ",
+        "auteur": "Quentin Tarantino",
+        "synopsis": "Dans la France occupée de 1940, Shosanna Dreyfus assiste à l'exécution de sa famille tombée entre les mains du colonel nazi Hans Landa. Shosanna s'échappe de justesse et s'enfuit à Paris où elle se construit une nouvelle identité en devenant exploitante d'une salle de cinéma. Quelque part ailleurs en Europe, le lieutenant Aldo Raine forme un groupe de soldats juifs américains pour mener des actions punitives particulièrement sanglantes contre les nazis. ",
+        "image":"/assets/image/guerre/IGB.jpg",
+        "note": "4.5",
+        "realese_date": "le le 19 aout 2009"
+       
+    },
+    {       "id":"4b",
+            "titre": "300 ",
+            "auteur": "Zack Snyder",
+            "synopsis": "En 485 avant notre ère, Xerxès succède à Darius Ier sur le trône de l'empire perse. Rapidement, les grandes cités grecques comprennent qu'une nouvelle guerre s'annonce. Athènes, Thèbes, Corinthe et Délos se rallient à Sparte qui dispose de la meilleure armée. En 480, le roi spartiate Léonidas est namemé commandant en chef de cette union militaire de la dernière chance. Lorsque la flotte perse rallie les fantassins de Xerxès, les troupes grecques prennent peur.",
+            "image":"/assets/image/guerre/300.jpg",
+            "note": "4.7",
+            "realese_date": "le 19 aout 2009"
+        },   
+        {
+            "id":"4c",
+            "titre": "TROIE",
+            "auteur": "Wolfgang Petersen",
+            "synopsis": " Dans la Grèce antique, l'enlèvement d'Hélène, reine de Sparte, par Paris, prince de Troie, est une insulte que le roi Ménélas ne peut supporter. L'honneur familial étant en jeu, Agamemnon, frère de Ménélas et puissant roi de Mycènes, réunit toutes les armées grecques afin de faire sortir Hélène de Troie. L'issue de la guerre de Troie dépendra notamment d'un homme, Achille. Arrogant, rebelle, et réputé invicible, celui-ci n'a d'attache pour rien ni personne si ce n'est sa propre gloire.",
+            "image":"/assets/image/guerre/Troie.jpg",
+            "note": "4.2",
+            "realese_date": "le 13 mai 2004"
+        }
+    ]
+   },
+
+   {
+    "image":"/assets/icons/horror.png",
+    "id": "5",
+    "name": "Horreur",
+    "films": [
+     { 
+        "id":"5a",
+        "titre": "Paranormal Activity ",
+        "auteur": "Oren Peli",
+        "synopsis": "Un jeune couple s'installe dans une maison en banlieue. Le bonheur fait place à la terreur lorsqu'ils doivent repousser, toutes les nuits, les attaques d'un esprit démoniaque... ",
+        "image":"/assets/image/horreur/paranormal.jpg",
+        "note": "4.5",
+        "realese_date": "le 2 decembre 2009"
+       
+    },
+    {       "id":"5b",
+            "titre": "Conjuring",
+            "auteur": "James Wan",
+            "synopsis": "L'histoire horrible, mais vraie, d'Ed et Lorraine Warren, enquêteurs paranormaux réputés dans le monde entier, venus en aide à une famille terrorisée par une présence inquiétante dans leur ferme isolée. Contraints d'affronter une créature démoniaque d'une force redoutable, les Warren se retrouvent face à l'affaire la plus terrifiante de leur carrière.",
+            "image":"/assets/image/horreur/conjuring.jpg",
+            "note": "4.1",
+            "realese_date": "le 21 aout 2013"
+        },   
+        {
+            "id":"5c",
+            "titre": "Insidious",
+            "auteur": "Patrick Wilson, Leigh Whannell, Adam Robitel, James Wan",
+            "synopsis": " Josh, son épouse et leurs trois enfants vivent depuis peu dans leur nouvelle maison lorsque leur fils aîné tombe dans un coma inexpliqué. Pensant que leur maison est hantée, ils réalisent que tout est lié à leur fils quand un médium leur révèle que l'âme de ce dernier se trouve dans la dimension astrale, et que des forces maléfiques veulent s'emparer de son enveloppe corporelle. Ils vont alors tenter de combattre le mal qui rôde autour d'eux.",
+            "image":"/assets/image/horreur/insidious.jpg",
+            "note": "3.5",
+            "realese_date": "le 15 juin 2011"
+        }
+    ]
+   },
+   
+   {
+    "image":"/assets/icons/NotreDame.png",
+    "id": "6",
+    "name": "Dessin Anime",
+    "films": [
+     { 
+        "id":"6a",
+        "titre": "Là-haut ",
+        "auteur": "Pete Docter",
+        "synopsis": " Quand Carl, un grincheux de 78 ans, décide de réaliser le rêve de sa vie en attachant des milliers de ballons à sa maison pour s'envoler vers l'Amérique du Sud, il ne s'attendait pas à embarquer avec lui Russell, un jeune explorateur de neuf ans, toujours très enthousiaste et assez envahissant.",
+        "image":"/assets/image/DessinAnime/lahaut.jpg",
+        "note": "4.5",
+        "realese_date": "le 29 juillet 2009"
+       
+    },
+    {       "id":"6b",
+            "titre": "AKIRA",
+            "auteur": "Katsuhiro Ōtomo",
+            "synopsis": " Tetsuo, un adolescent ayant vécu une enfance difficile, est la victime d'expériences visant à développer les capacités psychiques qui dorment en chacun de nous. Ainsi doté d'une puissance que lui meme ne peut imaginer, Tetsuo décide de partir en guerre contre le monde qui l'a opprimé. Dès lors, Il se retrouve au coeur d'une légende populaire qui annonce le retour prochain d'Akira, un enfant aux pouvoirs extra-ordinaires censé délivrer Tokyo du chaos...",
+            "image":"/assets/image/DessinAnime/akira.jpg",
+            "note": "4.2",
+            "realese_date": "le 8 mai 1991"
+        },   
+        {
+            "id":"6c",
+            "titre": "Le Géant de fer",
+            "auteur": "Brad Bird",
+            "synopsis": "Livré à lui-même, le petit Hogarth Hughes passe le plus clair de son temps devant le petit écran. Alors qu'il regarde une de ses émissions favorites, l'image se brouille subitement. Il s'aperçoit que l'antenne a été arrachée. Remontant la piste du coupable, il découvre, au milieu de la forêt voisine, une gigantesque créature métallique, prête à dévorer la centrale électrique.",
+            "image":"/assets/image/DessinAnime/Geantdefer.jpg",
+            "note": "3.5",
+            "realese_date": "le 8 décembre 1999"
+        }
+    ]
+   },
+
+   {
+    "image":"/assets/icons/aventure.png",
+    "id": "7",
+    "name": "Aventure",
+     "films":[
+{      
+       "id":"7a",
+        "titre": "Indiana Jones Les Aventuriers de l'arche perdue",
+         "auteur": "Steven Spielberg",
+         "synopsis": "Professeur d'archéologie, Indiana Jones parcourt le monde à la recherche de trésors. Son rival, le Français René Belloq, travaille pour les nazis qui rêvent de retrouver l'Arche d'alliance contenant les Tables de la Loi. Or, feu le professeur Ravenwood, père de Marion, l'ex-petite amie d'Indiana Jones, détenait une médaille permettant de localiser l'arche. Jones part sur les traces de Marion au Népal.",
+         "image":"/assets/image/aventure/IJ1.jpg",
+         "note": "3.8",
+         "realese_date": "le 16 Décembre 1981"
+},
+   
+
+ {  
+    "id":"7b",
+    "titre": "Indiana Jones et le Temple maudit ",
+     "auteur": "Steven Spielberg",
+     "synopsis": "À Shanghaï, Indiana Jones se trouve mêlé à un règlement de compte entre gangsters qui se disputent un bijou. Avec le jeune chinois Demi-Lune et de la chanteuse Willie Scott, Indiana fuit à bord d'un avion de fortune. Ils atterrissent en plein coeur de l'Inde où ils découvrent une population misérable depuis le vol d'une pierre sacrée dotée de pouvoirs.",
+     "image":"/assets/image/aventure/IJ2.jpg",
+     "note": "4.5",
+     "realese_date": "le 8 mai 1984"
+ },
+
+ { 
+    "id":"7c",   
+ "titre": "Indiana Jones et la Dernière Croisade",
+ "auteur": "Steven Spielberg",
+ "synopsis": "En 1912 dans l'Utah, Indiana Jones, adolescent, surprend des pilleurs de trésors archéologiques avant d'être poursuivi par les trafiquants. 26 ans plus tard, Jones apprend que son père, le professeur Henry Jones, parti à la recherche du Saint Graal, a disparu et il se rend alors à Venise où son père a été vu pour la dernière fois.",
+ "image":"/assets/image/aventure/IJ3.jpg",
+ "note": "4.1",
+ "realese_date": "le 21 octobre 2003"
+},
+
+{ 
+    "id":"7d",   
+"titre": "Indiana Jones et le Royaume du crâne de cristal",
+"auteur": "Steven Spielberg",
+"synopsis":"Ayant accepté d'aider une jeune rebelle dans une mission personnelle, mais qui pourrait le mettre en présence d'un artefact de valeur inestimable, le légendaire crâne de cristal d'Akator, Indiana ...",
+"image":"/assets/image/aventure/IJ4.jpg",
+"note": "4.4",
+"realese_date": "le 21 mai 2008"
+},
+
+{
+    "id":"7e",
+    "titre": "Indiana Jones et le Cadran de la destinée",
+"auteur": "Steven Spielberg",
+"synopsis": "Indiana Jones reçoit la visite surprise de sa filleule Helena Shaw, qui est à la recherche d'un artefact rare que son père a confié à Indiana par le passé : le fameux cadran d'Archimède, une relique qui aurait le pouvoir de localiser les fissures temporelles. Helena vole l'objet et quitte précipitamment le pays afin de le vendre au plus offrant. Indy n'a d'autre choix que de se lancer à sa poursuite.",
+"image":"/assets/image/aventure/IJ5.jpg",
+"note": "4.5",
+"realese_date": " le 30 juin 2023"
+}
+]
+}
+    
+
+    ]
+}

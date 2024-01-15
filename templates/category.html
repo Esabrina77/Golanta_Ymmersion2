@@ -1,0 +1,157 @@
+{{define "category"}}
+
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/image/cinema-logo.jpg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/category.css" >
+	<title>Category-{{.Name}}</title>
+</head>
+<body>
+    <header>
+		<div class="SYNOPSIS"> 
+			<div id="SynopsisImage">
+			 <a href="/home"> <img src="../assets/icons/iconeNetflix.png" alt="logo-airbnb-1536"> </a>
+		</div>
+			<div class="Start">
+			   <a href="/search">
+	   <span>Ici,Les</span>
+	   <span>Meilleurs</span>
+	   <span>Films</span>
+       <img src="../assets/icons/loupe.png" alt="loupe">
+   </a>   
+
+   </div>
+
+			 <a href="/connexion">
+			<div id="infosProfil">
+			   <div id="imageProfil">
+				   <img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
+				</div>
+			 <p>QUITTER</p>
+		   </div>
+			</a>
+		</header>
+
+
+    <div id="HEAD">
+        <div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
+    <h1 style="color: rgb(255, 235, 235); "> {{.Name}}</h1>
+        </div>
+    <div class="SomeFilms">
+    {{range  .Films}}
+         <div class="Film">
+         <h3 style="color: black;">{{.Titre}}</h3>
+         <p style="margin-bottom: 5px;color: black; text-decoration: underline;">Auteur: <p>{{.Auteur}}</p>
+         <p style="margin-bottom: 5px;color: black; text-decoration: underline;">Synopsis:</p> <p>{{.Synopsis}}</p>
+         <p style="color: black; text-decoration: underline;">Date de sortie:</p>  <p>{{.RealeseDate}}</p>
+         <p style="color: black; text-decoration: underline;">Note:</p> <p>{{.Note}}</p>
+         <img src="{{.Image}}" alt="{{.Titre}}" width="150px" height="200px" style="margin-bottom:8px">
+         
+
+         <div id="commentaires">
+       <form action="/submitComments" method="POST">
+         <input type="hidden" name="nom_film" value="{{.Titre}}">
+         <label for="commentaire">N'hésitez pas à laisser un Commentaire:</label>
+         <textarea name="commentaire" required></textarea>
+         <button type="submit">Partagez </button>
+         </form>
+        </div>
+         </div>
+       {{end}}
+        </div>
+        </div>
+        <style>
+            #commentaires {
+              background-color: #000;
+              color: #fff;
+              border-radius: 8px;
+              padding: 20px;
+              max-width: 500px;
+              margin: 0 auto;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            h3 {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+            
+            form {
+              display: flex;
+              flex-direction: column;
+            }
+            
+            label {
+              font-size: 18px;
+              color: #fff;
+              margin-bottom: 10px;
+            }
+            
+            textarea {
+              height: 60px;
+              background-color: #333;
+              color: #fff;
+              border: none;
+              border-radius: 4px;
+              padding: 10px;
+              resize: vertical;
+              margin-bottom: 20px;
+            }
+            
+            button[type="submit"] {
+              background-color: #e50914;
+              color: #fff;
+              border: none;
+              border-radius: 4px;
+              padding: 10px 20px;
+              font-size: 18px;
+              cursor: pointer;
+            }
+            
+            button[type="submit"]:hover {
+              background-color: #b2070a;
+            }
+            
+            /* Extra */
+            #commentaires:before {
+              content: "";
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              border-width: 10px;
+              border-style: solid;
+              border-color: transparent transparent #000 transparent;
+            }
+            </style>
+           
+           <div id="Bottom">
+            <a href="/form">
+              <p><b>Ajouter Un Film</b> </p>
+              </a>
+              </div>
+              <footer>
+                <div id="centre_moi">
+                  <div class="github">
+                    <a href="https://github.com/Mirkium/Immersion-2-PROJET-BLOG"><h1 class="neon">Le github du projet</h1></a>
+                  </div>
+                  <div class="liste">
+                    <h2 class="neon">Team Yellow :</h2>
+                    <li class="Nom"><h3 class="neon">Mathias Neri</h3></li>
+                    <li class="Nom"><h3 class="neon">Joris Bremond</h3></li>
+                    <li class="Nom"><h3 class="neon">Sabrina Eloundou</h3></li>
+                    <li class="Nom"><h3 class="neon">Alexandre Petitfrere</h3></li>
+                  </div>
+                </div>
+                <div class="container">
+                      <div class="wave"></div>
+                      <div class="wave"></div>
+                      <div class="wave"></div>
+                  </div>
+              </footer>
+</body>
+</html>
+{{end}}

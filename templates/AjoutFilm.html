@@ -1,0 +1,68 @@
+{{define "form"}}
+
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/icons/iconeNetflix.png">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css" >
+	<title>#add-article</title>
+</head>
+<body >
+    <header>
+		<div class="SYNOPSIS"> 
+			<div id="SynopsisImage">
+			 <a href="/home"> <img src="../assets/icons/iconeNetflix.png" alt="logo-netflix-1536"> </a>
+		</div>
+			<div class="Start">
+			   <a href="/search">
+	   <span>Ici,Les</span>
+	   <span>Meilleurs</span>
+	   <span>Films</span>
+	   <img src="../assets/icons/loupe.png" alt="loupe">
+   </a>        
+   </div>
+			 <a href="/connexion">
+			<div id="infosProfil">
+			   <div id="imageProfil">
+				   <img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
+				</div>
+			 <p>QUITTER</p>
+		   </div>
+			</a>
+	</header>
+
+ 
+
+    <div id="AllComments">
+		<div class="Affiche">
+
+			<h1 style="font-size: 30px;">Ajouter un film:</h1>
+        </div>
+			<div class="Comment" style="font-size: 20px;">
+				<h1>Ajouter un film</h1>
+				<form action="/ajouter-film" method="POST">
+					<label for="titre">Titre :</label>
+					<input type="text" id="titre" name="titre" required><br>
+			
+					<label for="auteur">Auteur :</label>
+					<input type="text" id="auteur" name="auteur" required><br>
+			
+					<label for="synopsis">Synopsis :</label>
+					<textarea id="synopsis" name="synopsis" required></textarea><br>
+			
+					<label for="categorie">Catégorie :</label>
+					<input type="text" id="categorie" name="categorie" required><br>
+			
+					<input type="submit" value="Ajouter">
+				</form>
+    </div>
+	<div id="Bottom">
+		<a href="/myList">
+		<p><b>Ma liste</b></p>
+		</a>
+		  </div>
+</body>
+</html>  
+{{end}}

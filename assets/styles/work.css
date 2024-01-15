@@ -1,0 +1,13 @@
+@font-face {
+    font-family: NetflixSansBold;
+    src: url('/assets/fonts/NetflixSans-Bold.otf');
+  }
+  @font-face {
+    font-family: NetflixSansRegular;
+    src: url('/assets/fonts/NetflixSans-Regular.otf');
+  }
+  
+  @font-face {
+    font-family: Montserrat;
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }

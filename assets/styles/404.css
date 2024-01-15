@@ -1,0 +1,231 @@
+@font-face {
+    font-family: NetflixSansBold;
+    src: url('/assets/fonts/NetflixSans-Bold.otf');
+  }
+  @font-face {
+    font-family: NetflixSansRegular;
+    src: url('/assets/fonts/NetflixSans-Regular.otf');
+  }
+  
+  @font-face {
+    font-family: Montserrat;
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+  @font-face {
+    font-family: NetflixSansBold;
+    src: url('/assets/fonts/NetflixSans-Bold.otf');
+  }
+  @font-face {
+    font-family: NetflixSansRegular;
+    src: url('/assets/fonts/NetflixSans-Regular.otf');
+  }
+  
+  @font-face {
+    font-family: Montserrat;
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+  }
+  
+  
+  
+  body{
+  background-color: rgba(3, 3, 3, 0.929);
+  position: relative;
+  display: flex;
+   flex-direction: column;
+  }
+  
+  /* CONTENU DE L'EN-TETE FIXE */
+  header{
+  z-index: 1;
+  padding: 0 20px;
+  font-family:Montserrat;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: auto; 
+  flex-direction: column;
+  margin-bottom: 50px;
+  background-color: #060505;
+  }
+  #HEAD{
+    flex: 1;
+   margin-top: 8%;
+  
+  }
+  
+  .SYNOPSIS{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: groove 2px;
+  
+  }
+  .SYNOPSIS span{
+  padding: 0 10px;
+  border-right: 2px solid rgb(0, 0, 0);
+  }
+  .SYNOPSIS span:last-child{
+  border-right:none;
+  }
+  #SynopsisImage img{
+  width: 120px;
+  height: 80px;
+  }
+  
+  .Start{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding:5px 10px;
+  border: 5px;
+  background-color: rgba(245, 244, 244, 0.774);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  }
+  .Start img{
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  }
+  
+  #infosProfil{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 10px 8px;
+  justify-content: space-between;
+  border-style: groove;
+  border-radius: 20% 57% 4px;
+  background-color: rgba(255, 255, 255, 0.774);
+  }
+  #LoginProfil{
+  border-radius: 50%;
+  width: auto;
+  }
+  #LoginProfil img{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  }
+  .text{
+    font-family: NetflixSansBold ;
+    margin: 5px 0;
+    display: flex;
+    padding: 0 5px;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+  a{
+  text-decoration: none;
+  color: black;
+  }
+  
+body{
+    background-color: black;
+    color: white;
+    width: 99vw;
+    height: 99vh;
+    background-image: url('/assets/image/PDL.jpg');
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-size: cover;
+    margin: 0%;
+}
+    
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: medium;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+
+.erreur {
+  color: #fff;
+  font-size: 3em;
+  height: 100px;
+}
+
+.text {
+  font-size: 2em;
+}
+
+.bouton-btn {
+  color: #fff;
+  font-size: 2em;
+
+}
+
+.Code {
+  font-size: 2em;
+}
+
+.bouton-btn {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all .2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+ }
+ 
+ .bouton-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .bouton-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .bouton-btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+ }
+ 
+ .bouton-btn::after {
+  background-color: #fff;
+ }
+ 
+ .bouton-btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+ }
+

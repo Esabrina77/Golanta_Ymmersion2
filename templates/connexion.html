@@ -1,0 +1,32 @@
+{{define "connexion"}}
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/connexion.css" >
+	<title>Log in</title>
+</head>
+<body >
+
+	<div class="LoginScreen">
+        <div id="PROFIL"><img src="/assets/icons/icon-profile-1.jpg"></div>
+	    <h1>Log in here!</h1>
+	    <form method="POST" action="/treatmentC">
+            <label for="email">Enter your Email: </label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Enter your password:</label>
+            <input type="password" id="password" name="password" required>
+       
+            <div class="connection">
+                <input type="submit" value="Connexion">
+                 <br>
+              </div>
+        </form>
+        <div class="Direction">
+            <a href="/inscription">Or Sign Up For Free</a>
+        </div>
+    </div> 
+</body>
+</html>
+{{end}}
