@@ -1,6 +1,4 @@
-
 {{define "myList"}}
-
 <!DOCTYPE html>
 <html>
 <head> 
@@ -14,16 +12,9 @@
     <header>
 		<div class="SYNOPSIS"> 
 			<div id="SynopsisImage">
-			 <a href="/home"> <img src="../assets/icons/iconeNetflix.png" alt="logo-netflix-1536"> </a>
+			 <a href="/home"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
 		</div>
-			<div class="Start">
-			   <a href="/search">
-	   <span>Ici,Les</span>
-	   <span>Meilleurs</span>
-	   <span>Films</span>
-       <img src="../assets/icons/loupe.png" alt="loupe">
-   </a>        
-   </div>
+			
 			 <a href="/connexion">
 			<div id="infosProfil">
 			   <div id="imageProfil">
@@ -37,35 +28,19 @@
             <div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
                 <h1 style="color: rgb(255, 235, 235); ">Ma liste de films</h1>
                     </div>
+
 <div class="SomeFilms">
+	<ul>
 		{{range .}}
-			<div class="Film">
-                <strong>Titre :</strong> {{.Titre}}<br>
-                <strong>Auteur :</strong> {{.Auteur}}<br>
-                <strong>Synopsis :</strong> {{.Synopsis}} 
-			</div>
+
+		<li>Nom : {{.Nom}}</li>
+		<li>Capacités : {{range .Capacites}}{{.}}<br>{{end}}</li>
+		<br>
 		{{end}}
+	  </ul>
 </div>
 </div>
-<footer>
-	<div id="centre_moi">
-	  <div class="github">
-		<a href="https://github.com/Mirkium/Immersion-2-PROJET-BLOG"><h1 class="neon">Le github du projet</h1></a>
-	  </div>
-	  <div class="liste">
-		<h2 class="neon">Team Yellow :</h2>
-		<li class="Nom"><h3 class="neon">Mathias Neri</h3></li>
-		<li class="Nom"><h3 class="neon">Joris Bremond</h3></li>
-		<li class="Nom"><h3 class="neon">Sabrina Eloundou</h3></li>
-		<li class="Nom"><h3 class="neon">Alexandre Petitfrere</h3></li>
-	  </div>
-	</div>
-	<div class="container">
-		  <div class="wave"></div>
-		  <div class="wave"></div>
-		  <div class="wave"></div>
-	  </div>
-  </footer>
+
 </body>
 </html>
 {{end}}

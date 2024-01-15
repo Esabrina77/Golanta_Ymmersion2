@@ -14,8 +14,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('/assets/image/background_netflix.png'); 
-    background-size: cover;
+    background-image: url('/assets/image/totem5.jpg'); 
+    background-size: contain;
+    background-position: center;
     background-repeat: repeat;
     backdrop-filter: blur(5px);
     background-size: 120%;
@@ -24,14 +25,16 @@ body {
     justify-content: center;
     display: flex;
     align-items: center;
+    flex-direction: column row;
     font-family: NetflixSansRegular;
     font-size:calc(0.9em + 0.7rem);
   }
  #PROFIL{ 
-  background-color: rgba(255, 255, 255, 0.785);
-   border-radius: 52%;
-   width: 150px;
-   height: 150px;
+   display: flex;
+   align-items: center;
+   height: auto;
+   width: 30vh;
+   height: 30vh;
  }
  #PROFIL img{
   width: 100%;
@@ -40,7 +43,7 @@ body {
 
   .LoginScreen {
     display: flex;
-    flex-direction: column;
+    flex-direction: column ;
     align-items: center;
     justify-content: center;
     background-color: #000000e2;

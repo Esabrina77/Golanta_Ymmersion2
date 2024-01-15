@@ -1,8 +1,8 @@
 package routeur
 
 import (
-	"BlogYmmersion/controller"
-	inittemplate "BlogYmmersion/templates"
+	"Golanta/controller"
+	inittemplate "Golanta/templates"
 	"fmt"
 	"log"
 	"net/http"
@@ -14,17 +14,15 @@ func InitServe() {
 	http.HandleFunc("/connexion", controller.ConnexionHandler)
 	http.HandleFunc("/inscription", controller.InscriptionHandler)
 	http.HandleFunc("/home", controller.HomeHandler)
-	http.HandleFunc("/category", controller.CategoryHandler)
 	http.HandleFunc("/comments", controller.CommentsHandler)
 	http.HandleFunc("/treatmentI", controller.TreatInscriptionHandler)
 	http.HandleFunc("/treatmentC", controller.TreatConnexionHandler)
 	http.HandleFunc("/submitComments", controller.SubmitCommentHandler)
 	http.HandleFunc("/myList", controller.MyListHandler)
-	http.HandleFunc("/ajouter-film", controller.AjouterFilmHandler)
+	http.HandleFunc("/ajout_perso", controller.AjouterPersoHandler)
 	http.HandleFunc("/confirmation", controller.ConfirmationHandler)
 	http.HandleFunc("/form", controller.FormHandler)
 	http.HandleFunc("/404", controller.NotFoundHandler)
-	http.HandleFunc("/search", controller.SearchHandler)
 	http.HandleFunc("/notFound", controller.RessourceNotFoundHandler)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

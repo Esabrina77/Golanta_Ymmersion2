@@ -1,4 +1,4 @@
-module BlogYmmersion
+module Golanta
 
 go 1.21.1
 

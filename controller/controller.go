@@ -1,16 +1,14 @@
 package controller
 
 import (
-	"BlogYmmersion/manager"
-	inittemplate "BlogYmmersion/templates"
+	"Golanta/manager"
+	inittemplate "Golanta/templates"
 	"crypto/rand"
 	"encoding/base64"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/sessions"
 )
@@ -28,20 +26,23 @@ func SecretKey() string {
 	return base64.StdEncoding.EncodeToString(key)
 }
 
+// Sécurisation des routes/gestions des erreurs de chargement de pages
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
+	inittemplate.Temp.ExecuteTemplate(w, "404", nil)
+}
+
 func RessourceNotFoundHandler(w http.ResponseWriter, r *http.Request) {
 
-	inittemplate.Temp.ExecuteTemplate(w, "connexion", nil)
+	inittemplate.Temp.ExecuteTemplate(w, "notFound", nil)
 }
 func ConfirmationHandler(w http.ResponseWriter, r *http.Request) {
 	inittemplate.Temp.ExecuteTemplate(w, "confirmation", nil)
-
 }
-
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "connexion", nil)
 }
-
 func FormHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "form", nil)
@@ -50,22 +51,20 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "inscription", nil)
 }
-func ErrorHandler(w http.ResponseWriter, r *http.Request) {
 
-	inittemplate.Temp.ExecuteTemplate(w, "error", nil)
-}
 func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	var session *sessions.Session
 	//recupérer les données du formulaire d'enregistrement
 	email := r.FormValue("email")
 	password := r.FormValue("password")
+	pseudo := r.FormValue("pseudo")
 
 	//Enregistrer le nouvel Utilisateur
 	users := manager.RetrieveUser()
 	var login bool
 
 	for _, user := range users {
-		if user.Email == email && user.Password == password {
+		if user.Email == email && user.Password == password && user.Pseudo == pseudo {
 			//verifier si le login est déjà enregistré
 			login = true
 		}
@@ -76,7 +75,7 @@ func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		//IL S AGIT D'UNE PREMIERE CONNEXION !
 		//rediriger vers la page dc'acceuil & enregistrer le login
-		manager.MarkLogin(email, password)
+		manager.MarkLogin(email, password, pseudo)
 
 		i := 0
 		//Creer une nouvelle session & stocker l'email
@@ -106,6 +105,7 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	//recupérer les données du formulaire de connexion
 	email := r.FormValue("email")
 	password := r.FormValue("password")
+	pseudo := r.FormValue("pseudo")
 
 	fmt.Println("l' email:", email)
 	fmt.Println("le password:", password)
@@ -113,7 +113,7 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	var login bool
 
 	for _, user := range users {
-		if user.Email == email && user.Password == password {
+		if user.Email == email && user.Password == password && user.Pseudo == pseudo {
 			//verifier si le login est correcte
 			login = true
 			break
@@ -131,8 +131,8 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 
-		session.Values["email"] = email
-		fmt.Println("EMAIL RECU", email)
+		session.Values["pseudo"] = pseudo
+		fmt.Println("PSEUDO RECU", pseudo)
 		err = session.Save(r, w)
 		if err != nil {
 			http.Error(w, "ERREUR DE SESSION_2", http.StatusInternalServerError)
@@ -147,108 +147,58 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	inittemplate.Temp.ExecuteTemplate(w, "home", nil)
+}
 
-	//ouverture et lecture des données json à partir du fichier
-	dataJSON, err := os.ReadFile("DATA.json")
-
-	//gestion de l'erreur à la lecture du fichier
-	if err != nil {
-		log.Fatal(err)
-		manager.PrintColorResult("red", " ERREUR LORS DE LA LECTURE DU FICHIER")
-		fmt.Printf("ALERTE: %#v", err)
+func AjouterPersoHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	if r.Method == "POST" {
+		nom := r.FormValue("nom")
+		capacites := r.Form["capacite"]
 
-	//Désérialiser les données JSON dans
-	// la structure de données(Analyse des reponses json)
-	var data manager.DataCategory
-	err = json.Unmarshal(dataJSON, &data)
-
-	//gestion de l'erreur à la lecture du fichier
-	if err != nil {
-		log.Fatal(err)
-		manager.PrintColorResult("red", " ERREUR LORS DE LA LECTURE DU FICHIER")
-		fmt.Printf("ALERTE: %#v", err)
-		return
-	}
-
-	// Extraire les 8 premiers films de toutes les catégories
-	for i := range data.Categories {
-		if len(data.Categories[i].Films) > 2 {
-			data.Categories[i].Films = data.Categories[i].Films[:2]
+		aventurier := manager.Aventurier{
+			Nom:       nom,
+			Capacites: capacites,
 		}
-	}
-
-	// Vérifier si la tranche a au moins 11 éléments avant d'accéder au 11e élément
-	if len(data.Categories) > 2 {
-		fmt.Printf("ALERTE: %#v", data.Categories[2])
-	}
-
-	inittemplate.Temp.ExecuteTemplate(w, "home", data)
-}
-
-// Pouvoir effectuer le recherche d'un film
-// gestionnaire de requete "get"
-func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	query := r.URL.Query().Get("query")
-
-	categories, err := manager.LoadCategories()
-	if err != nil {
-		http.Error(w, "ERREUR DE SESSION_search", http.StatusInternalServerError)
-		return
-	}
-	results := manager.SearchFilm(categories, query)
-
-	//Au cas où aucun resultat ne correspond à la recherche
-	if len(results) == 0 {
-		http.Redirect(w, r, "/notFound", http.StatusFound)
-		return
-	}
-
-	inittemplate.Temp.ExecuteTemplate(w, "search", results)
-}
-
-func CategoryHandler(w http.ResponseWriter, r *http.Request) {
-
-	//Récuperer l'IP de la catégorie en paramètre de la requetes
-	categoryID := r.URL.Query().Get("id")
-
-	//lecture des données json à partir du fichier
-	dataJSON, err := os.ReadFile("DATA.json")
-	//gestion de l'erreur à la lecture du fichier
-	if err != nil {
-		log.Fatal(err)
-		manager.PrintColorResult("red", " ERREUR LORS DE LA LECTURE DU FICHIER")
-		fmt.Printf("ALERTE: %#v", err)
-		return
-	}
-
-	//Désérialiser les données JSON dans
-	// la structure de données(Analyse des reponses json)
-	var data manager.DataCategory
-	err = json.Unmarshal(dataJSON, &data)
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-
-	//Trouver la catégorie correspondante à l'ID
-	var category manager.Category
-	for _, c := range data.Categories {
-		if c.ID == categoryID {
-			category = c
-			break
+		personnages, err := manager.ChargerPersonnages()
+		if err != nil {
+			fmt.Printf("ERREUR: %#v\n", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
 		}
+
+		//Ajout d'un nouveau personnage
+		personnages = append(personnages, aventurier)
+		//sauvegarde du personnages
+		err = manager.SauvegarderPersonnages(personnages)
+		if err != nil {
+			fmt.Printf("ERREUR: %#v\n", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+
+		http.Redirect(w, r, "/confirmation", http.StatusSeeOther)
 	}
-
-	inittemplate.Temp.ExecuteTemplate(w, "category", category)
 }
 
-// Sécurisation des routes/gestions des erreurs de chargement de pages
-func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusNotFound)
-	inittemplate.Temp.ExecuteTemplate(w, "404", nil)
+func MyListHandler(w http.ResponseWriter, r *http.Request) {
+	personnages, err := manager.ChargerPersonnages()
+	if err != nil {
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+	// Passez les données des films à votre template HTML
+	perso := struct {
+		Personnages []manager.Aventurier
+	}{
+		Personnages: personnages,
+	}
+	inittemplate.Temp.ExecuteTemplate(w, "myList", perso)
 }
+
 func CommentsHandler(w http.ResponseWriter, r *http.Request) {
 	comments, err := manager.LoadComments()
 	if err != nil {
@@ -265,7 +215,7 @@ func CommentsHandler(w http.ResponseWriter, r *http.Request) {
 func SubmitCommentHandler(w http.ResponseWriter, r *http.Request) {
 	commentaire := r.FormValue("commentaire")
 	nomFilm := r.FormValue("nom_film")
-	userEmail, err := GetEmailSession(r)
+	pseudo, err := GetEmailSession(r)
 	if err != nil {
 		//Rediriger l'utilisateur vers la page de connexion
 		http.Redirect(w, r, "/connexion", http.StatusFound)
@@ -273,9 +223,8 @@ func SubmitCommentHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	comment := manager.Comment{
-		Email:   userEmail,
-		NomFilm: nomFilm,
-
+		Pseudo:      pseudo,
+		NomFilm:     nomFilm,
 		Commentaire: commentaire,
 	}
 
@@ -300,56 +249,10 @@ func GetEmailSession(r *http.Request) (string, error) {
 		return "", err
 	}
 	//Vérifier si le user est authentifié dans la session
-	userEmail, ok := session.Values["email"].(string)
+	pseudo, ok := session.Values["pseudo"].(string)
 
 	if !ok {
 		return "", errors.New("utilisateur non authentifié")
 	}
-	return userEmail, nil
-}
-
-func AjouterFilmHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
-	err := r.ParseForm()
-	if err != nil {
-		http.Error(w, "Bad request", http.StatusBadRequest)
-		return
-	}
-
-	titre := r.Form.Get("titre")
-	auteur := r.Form.Get("auteur")
-	synopsis := r.Form.Get("synopsis")
-
-	film := manager.Film{Titre: titre, Auteur: auteur, Synopsis: synopsis}
-
-	filmData, err := manager.LoadFilmData()
-	if err != nil {
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-
-	filmData.Films = append(filmData.Films, film)
-
-	err = manager.SaveFilmData(filmData)
-	if err != nil {
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-
-	http.Redirect(w, r, "/confirmation", http.StatusSeeOther)
-}
-
-func MyListHandler(w http.ResponseWriter, r *http.Request) {
-	filmData, err := manager.LoadFilmData()
-	if err != nil {
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-	// Passez les données des films à votre template HTML
-	films := filmData.Films
-	inittemplate.Temp.ExecuteTemplate(w, "myList", films)
+	return pseudo, nil
 }

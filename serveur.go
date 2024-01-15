@@ -1,9 +1,9 @@
 package main
 
 import (
-	"BlogYmmersion/manager"
-	"BlogYmmersion/routeur"
-	initTemplate "BlogYmmersion/templates"
+	"Golanta/manager"
+	"Golanta/routeur"
+	initTemplate "Golanta/templates"
 	"fmt"
 )
 
