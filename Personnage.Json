@@ -1,13 +1,40 @@
 [
  {
-  "id": 0,
-  "image": "assets/image/perso/lastOfUs.png",
-  "nom": "Sabrina",
+  "id": 3,
+  "image": "assets/image/perso/trevor.png",
+  "nom": "kereto",
   "capacites": [
-   "allumer_feu",
-   "construction_abris",
-   "sources_eau",
-   "peche"
+   "Capacité à allumer un feu",
+   "Compétences en construction d'abris",
+   "Capacité à trouver de la nourriture",
+   "Connaissance des plantes comestibles",
+   "Connaissance des sources d'eau potable",
+   "Capacité à pêcher"
+  ]
+ },
+ {
+  "id": 4,
+  "image": "assets/image/perso/ellie-zombie.png",
+  "nom": "Elena",
+  "capacites": [
+   "Connaissance des plantes comestibles",
+   "Endurance physique",
+   "Équilibre",
+   "Stratégie",
+   "Travail d'équipe",
+   "Orientation"
+  ]
+ },
+ {
+  "id": 5,
+  "image": "assets/image/perso/miranda.png",
+  "nom": "Lea Thunder",
+  "capacites": [
+   "Capacité à trouver de la nourriture",
+   "Agilité",
+   "Équilibre",
+   "Stratégie",
+   "Travail d'équipe"
   ]
  }
 ]

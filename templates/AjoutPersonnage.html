@@ -2,123 +2,141 @@
 
 <!DOCTYPE html>
 <html>
-<head> 
+
+<head>
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="/assets/icons/iconeNetflix.png">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css" >
+	<link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css">
 	<title>#add-article</title>
 	<script>
 		function limitCheckboxSelection() {
-		  var checkboxes = document.getElementsByName('capacite');
-		  var checkedCount = 0;
-		  for (var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i].checked) {
-			  checkedCount++;
+			var checkboxes = document.getElementsByName('capacite');
+			var checkedCount = 0;
+			for (var i = 0; i < checkboxes.length; i++) {
+				if (checkboxes[i].checked) {
+					checkedCount++;
+				}
 			}
-		  }
-		  if (checkedCount > 6) {
-			alert("Vous ne pouvez sélectionner que 6 capacités maximum.");
-			return false;
-		  }
+			if (checkedCount > 6) {
+				alert("Vous ne pouvez sélectionner que 6 capacités maximum.");
+				return false;
+			}
 		}
-	  </script>
- 
+	</script>
+
 </head>
-<body >
-    <header>
-		<div class="SYNOPSIS"> 
+
+<body>
+	<header>
+		<div class="SYNOPSIS">
 			<div id="SynopsisImage">
-			 <a href="/home"> <img src="../assets/image/logo-Koh-Lanta1.jpg" alt="logo-netflix-1536"> </a>
-		</div>
-			 <a href="/connexion">
-			<div id="infosProfil">
-			   <div id="imageProfil">
-				   <img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
+				<a href="/myList"> <img src="../assets/image/logo-Koh-Lanta1.jpg" alt="logo-netflix-1536"> </a>
+			</div>
+			<a href="/myList">
+			<div class="Start">
+					<span>VOIR </span>
+					<span>TOUS LES</span>
+					<span>PERSONNAGES</span>
+					<img src="../assets/icons/loupe.png" alt="loupe">
+			</div>
+		</a>
+			<a href="/connexion">
+				<div id="infosProfil">
+					<div id="imageProfil">
+						<img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
+					</div>
+					<p>QUITTER</p>
 				</div>
-			 <p>QUITTER</p>
-		   </div>
 			</a>
 	</header>
-	
+
 	<div id="personnage">
 		<div class="Affiche">
 			<h1 style="font-size: 30px;">CREER VOTRE PERSONNAGE</h1>
-        </div>
-			<div class="create" style="font-size: 20px;">
-				<h1>Ajouter un personnage</h1>
-				<form action="/ajout_perso" method="POST" onsubmit="return limitCheckboxSelection();">
-		<label for="nom">Nom :</label>
-		<input type="text" id="nom" name="nom" required><br>	
-		
-		<div id="imgPerso">
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/trevor.png">
-				<img src="assets/image/perso/trevor.png" alt="trevor">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/robert.png">
-				<img src="assets/image/perso/robert.png" alt="robert">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/ellie-zombie.png">
-				<img src="assets/image/perso/ellie-zombie.png" alt="ellie-zombie">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/lara_by.png">
-				<img src="assets/image/perso/lara_by.png" alt="lara_by">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/NathanUncharted.png">
-				<img src="assets/image/perso/NathanUncharted.png" alt="NathanUncharted">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/miranda.png">
-				<img src="assets/image/perso/miranda.png" alt="miranda">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/lastOfUs.png">
-				<img src="assets/image/perso/lastOfUs.png" alt="lastOfUs">
-			  </label>
-			  <label>
-				<input type="radio" name="personnage" value="assets/image/perso/sabrina.png">
-				<img src="assets/image/perso/sabrina.png" alt="sabrina">
-			  </label>
-			  
 		</div>
-		
-		<div id="capacite">	
-  <input type="checkbox" name="capacite" value="allumer_feu"> Capacité à allumer un feu<br>
-  <input type="checkbox" name="capacite" value="construction_abris"> Compétences en construction d'abris<br>
-  <input type="checkbox" name="capacite" value="trouver_nourriture"> Capacité à trouver de la nourriture<br>
-  <input type="checkbox" name="capacite" value="plantes_comestibles"> Connaissance des plantes comestibles<br>
-  <input type="checkbox" name="capacite" value="sources_eau"> Connaissance des sources d'eau potable<br>
-  <input type="checkbox" name="capacite" value="peche"> Capacité à pêcher<br>
-  <input type="checkbox" name="capacite" value="endurance"> Endurance physique<br>
-  <input type="checkbox" name="capacite" value="force"> Force physique<br>
-  <input type="checkbox" name="capacite" value="agilite"> Agilité<br>
-  <input type="checkbox" name="capacite" value="equilibre"> Équilibre<br>
-  <input type="checkbox" name="capacite" value="natation"> Compétences en natation<br>
-  <input type="checkbox" name="capacite" value="strategie"> Stratégie<br>
-  <input type="checkbox" name="capacite" value="travail_equipe"> Travail d'équipe<br>
-  <input type="checkbox" name="capacite" value="negociation"> Compétences en négociation<br>
-  <input type="checkbox" name="capacite" value="persuasion"> Compétences en persuasion<br>
-  <input type="checkbox" name="capacite" value="mentalite"> Mentalité compétitive<br>
-  <input type="checkbox" name="capacite" value="gestion_stress"> Gestion du stress<br>
-  <input type="checkbox" name="capacite" value="resilience"> Résilience<br>
-  <input type="checkbox" name="capacite" value="orientation"> Orientation<br>
-  <input type="checkbox" name="capacite" value="aventure"> Sens de l'aventure<br>
-   </div>
-  <input type="submit" value="Ajouter">
-	</form>
-    </div>
+		<div class="create" style="font-size: 20px;">
+			<h1>Ajouter un personnage</h1>
+			<form action="/ajout_perso" method="POST" onsubmit="return limitCheckboxSelection();">
+				<label for="nom">Nom :</label>
+				<input type="text" id="nom" name="nom" required><br>
+
+				<div id="imgPerso">
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/trevor.png">
+						<img src="assets/image/perso/trevor.png" alt="trevor">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/robert.png">
+						<img src="assets/image/perso/robert.png" alt="robert">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/ellie-zombie.png">
+						<img src="assets/image/perso/ellie-zombie.png" alt="ellie-zombie">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/lara_by.png">
+						<img src="assets/image/perso/lara_by.png" alt="lara_by">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/NathanUncharted.png">
+						<img src="assets/image/perso/NathanUncharted.png" alt="NathanUncharted">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/miranda.png">
+						<img src="assets/image/perso/miranda.png" alt="miranda">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/lastOfUs.png">
+						<img src="assets/image/perso/lastOfUs.png" alt="lastOfUs">
+					</label>
+					<label>
+						<input type="radio" name="personnage" value="assets/image/perso/sabrina.png">
+						<img src="assets/image/perso/sabrina.png" alt="sabrina">
+					</label>
+
+				</div>
+
+				<div id="capacite">
+					<input type="checkbox" name="capacite" value="Capacité à allumer un feu"> Capacité à allumer un
+					feu<br>
+					<input type="checkbox" name="capacite" value="Compétences en construction d'abris"> Compétences en
+					construction d'abris<br>
+					<input type="checkbox" name="capacite" value="Capacité à trouver de la nourriture"> Capacité à
+					trouver de la nourriture<br>
+					<input type="checkbox" name="capacite" value="Connaissance des plantes comestibles"> Connaissance
+					des plantes comestibles<br>
+					<input type="checkbox" name="capacite" value="Connaissance des sources d'eau potable"> Connaissance
+					des sources d'eau potable<br>
+					<input type="checkbox" name="capacite" value="Capacité à pêcher"> Capacité à pêcher<br>
+					<input type="checkbox" name="capacite" value="Endurance physique"> Endurance physique<br>
+					<input type="checkbox" name="capacite" value="Force physique"> Force physique<br>
+					<input type="checkbox" name="capacite" value="Agilité"> Agilité<br>
+					<input type="checkbox" name="capacite" value="Équilibre"> Équilibre<br>
+					<input type="checkbox" name="capacite" value="Compétences en natation"> Compétences en natation<br>
+					<input type="checkbox" name="capacite" value="Stratégie"> Stratégie<br>
+					<input type="checkbox" name="capacite" value="Travail d'équipe"> Travail d'équipe<br>
+					<input type="checkbox" name="capacite" value="Compétences en négociation"> Compétences en
+					négociation<br>
+					<input type="checkbox" name="capacite" value="Compétences en persuasion"> Compétences en
+					persuasion<br>
+					<input type="checkbox" name="capacite" value="Mentalité compétitive"> Mentalité compétitive<br>
+					<input type="checkbox" name="capacite" value="Gestion du stress"> Gestion du stress<br>
+					<input type="checkbox" name="capacite" value="Résilience"> Résilience<br>
+					<input type="checkbox" name="capacite" value="Orientation"> Orientation<br>
+					<input type="checkbox" name="capacite" value="Sens de l'aventure"> Sens de l'aventure<br>
+				</div>
+				<input type="submit" value="Ajouter">
+			</form>
+		</div>
 
 
-	<a href="/myList">
-	<div id="Bottom">
-		<p><b>Ma liste</b></p>
+		<a href="/myList">
+			<div id="Bottom">
+				<p><b>Ma liste</b></p>
 		</a>
-		  </div>
+	</div>
 </body>
-</html>  
+
+</html>
 {{end}}

@@ -113,6 +113,11 @@
 
     /*-------------Body page-------------*/
 
+    #personnage{
+      display: flex;
+      flex-direction: column;
+    }
+
   #imgPerso{
   width: 100%;
   height: auto;
@@ -127,3 +132,92 @@
     width: 15vh;
     height:26vh;
   }
+  #capacite {
+    margin-top: 10px;
+  }
+  .create {
+    font-size: 20px;
+  }
+  
+  #create form {
+    margin-top: 10px;
+  }
+  
+  #create label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #create input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  #create #imgPerso {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #create #imgPerso label {
+    display: block;
+    width: 120px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  #create #imgPerso img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  #create #capacite {
+    margin-top: 10px;
+  }
+  
+  #create input[type="checkbox"] {
+    display: none;
+  }
+  
+  #create label.checkbox-label {
+    display: block;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  #create label.checkbox-label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+  
+  #create input[type="checkbox"]:checked + label.checkbox-label:before {
+    background-color: #4CAF50;
+  }
+  
+  #create input[type="submit"] {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #3366cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #create input[type="submit"]:hover {
+    background-color: #265499;
+  }
+  

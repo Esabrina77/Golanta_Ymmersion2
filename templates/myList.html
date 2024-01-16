@@ -1,49 +1,77 @@
 {{define "myList"}}
 <!DOCTYPE html>
 <html>
-<head> 
+
+<head>
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="/assets/image/cinema-logo.jpg">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/home.css" >
+	<link rel="stylesheet" type="text/css" href="/assets/styles/home.css">
 	<title>My_List</title>
 </head>
-<body>
-    <header>
-		<div class="SYNOPSIS"> 
-			<div id="SynopsisImage">
-			 <a href="/home"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
-		</div>
-			
-			 <a href="/connexion">
-			<div id="infosProfil">
-			   <div id="imageProfil">
-				   <img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
-				</div>
-			 <p>QUITTER</p>
-		   </div>
-			</a>
-		</header>
-        <div id="HEAD">
-            <div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
-                <h1 style="color: rgb(255, 235, 235); ">La listes des personnages</h1>
-                    </div>
 
-<div class="SomeFilms">
-	<h1>LES PERSO</h1>
-	<ul>
-		{{range .Personnages}}
-		<li>Nom : {{.Nom}}</li>
-		<img src="{{.Image}}" alt="{{.Image}}">
-		<li>Capacités : {{range .Capacites}}{{.}}<br>{{end}}</li>
-		<br>
-		<li><a href="/supprimer?personnageID={{.ID}}">Supprimer</a></li>
-		<li><a href="/modifier">Modifier</a></li>
-		{{end}}
-	  </ul>
-</div>
-</div>
+<body>
+	<header>
+		<div class="SYNOPSIS">
+			<div id="SynopsisImage">
+				<a href="/home"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
+			</div>
+
+			<a href="/form">
+				<div class="Start">
+					<span>créer </span>
+					<span>un nouveau</span>
+					<span>personnage</span>
+					<img src="../assets/icons/loupe.png" alt="loupe">
+				</div>
+			</a>
+
+			<a href="/connexion">
+				<div id="infosProfil">
+					<div id="imageProfil">
+						<img src="/assets/image/masque.png" alt="Profil_Icon" width="50px" height="50px">
+					</div>
+					<p>QUITTER</p>
+				</div>
+			</a>
+	</header>
+
+	<div id="HEAD">
+		<div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
+			<h1 style="color: rgb(255, 235, 235); ">La liste des personnages</h1>
+		</div>
+
+		<div class="SomePerso">
+
+			{{range .Personnages}}
+			<div id="personnage">
+
+				<div id="imagePerso">
+					<img src="{{.Image}}" alt="{{.Image}}">
+				</div>
+
+				<div id="InfosPerso">
+					<div id="insfos">
+						<h2 style="color: black;"><u>NOM</u>: {{.Nom}}</h2>      <br><br>
+						<h3 style="color: black;"><u>CAPACITES</u>:</h3>
+							<br><p> {{range .Capacites}}{{.}}<br><br>{{end}}</p><br>
+					</div>
+					<div class="links">
+						<div>
+							<a href="/supprimer?personnageID={{.ID}}">Supprimer</a>
+						</div>
+						<div>
+							<a href="/modifier">Modifier</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{end}}
+
+		</div>
+	</div>
 
 </body>
+
 </html>
 {{end}}

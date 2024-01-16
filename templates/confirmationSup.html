@@ -1,12 +1,11 @@
-{{define "404"}}
+{{define "confirmationSup"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles/404.css">
-    <title>Vous cherchez votre chemin ?</title>
-
+    <title>Page non trouvée</title>
 </head>
 <body>
     
@@ -15,14 +14,16 @@
 			<div id="SynopsisImage">
 				<a href="/myList"> <img src="../assets/image/logo-Koh-Lanta1.jpg" alt="logo-netflix-1536"> </a>
 		</div>
+		
+		<a href="/form">
 			<div class="Start">
-				<a href="/form">
-	   <span>créer </span>
-	   <span>un nouveau</span>
-	   <span>personnage</span>
-       <img src="../assets/icons/loupe.png" alt="loupe">  
-	</a>     
-   </div>
+					<span>créer </span>
+					<span>un nouveau</span>
+					<span>personnage</span>
+					<img src="../assets/icons/loupe.png" alt="loupe">
+			</div>
+		</a>
+
 			 <a href="/connexion">
 			<div id="infosProfil">
 			   <div id="imageProfil">
@@ -34,14 +35,12 @@
 		</header>
 
     <div class="container">
-    <a>
-        <h2 class="erreur">Désolés, vous êtes égarés.</h2>
-        <h3 class="text"> Nous n'avons pas trouvé cette page. Une multitude d'aventures vous attendent sur notre page d'accueil, prêts à relever le défi ?"</h3>
-        <a href="/myList" class="bouton-btn">Accueil</a>
-        <h4 class="Code">Code d'erreur : GOLANTA-404</h4>
-    </a>
+        <h1>Confirmation</h1>
+        <p>Le personnage a été Supprimé avec succès.</p>
+        <a href="/form" class="bouton-btn" style="margin-bottom: 20px;">Ajouter un autre personnage</a>
+	 <a href="/myList" class="bouton-btn">Retour Vers La liste</a>
     </div>
-
+	
 </body>
 </html>
 {{end}}

@@ -52,7 +52,10 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "inscription", nil)
 }
+func ConfirmationSupHandler(w http.ResponseWriter, r *http.Request) {
 
+	inittemplate.Temp.ExecuteTemplate(w, "confirmationSup", nil)
+}
 func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	var session *sessions.Session
 	//recupérer les données du formulaire d'enregistrement
@@ -97,7 +100,7 @@ func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/home?success=Login_registred", http.StatusFound)
+		http.Redirect(w, r, "/form?success=Login_registred", http.StatusFound)
 	}
 
 }
@@ -140,15 +143,12 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/home", http.StatusFound)
+		http.Redirect(w, r, "/form", http.StatusFound)
 	} else {
 		//rediriger vers la page de connexion avec un message d'erreur
 		http.Redirect(w, r, "/connexion?error=invalid_login_try_again", http.StatusFound)
 	}
 
-}
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	inittemplate.Temp.ExecuteTemplate(w, "home", nil)
 }
 
 func AjouterPersoHandler(w http.ResponseWriter, r *http.Request) {

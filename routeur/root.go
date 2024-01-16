@@ -13,7 +13,6 @@ func InitServe() {
 	http.Handle("/assets/", http.StripPrefix("/assets/", FileServer))
 	http.HandleFunc("/connexion", controller.ConnexionHandler)
 	http.HandleFunc("/inscription", controller.InscriptionHandler)
-	http.HandleFunc("/home", controller.HomeHandler)
 	http.HandleFunc("/comments", controller.CommentsHandler)
 	http.HandleFunc("/treatmentI", controller.TreatInscriptionHandler)
 	http.HandleFunc("/treatmentC", controller.TreatConnexionHandler)
@@ -25,6 +24,7 @@ func InitServe() {
 	http.HandleFunc("/myList", controller.MyListHandler)
 	http.HandleFunc("/ajout_perso", controller.AjouterPersoHandler)
 	http.HandleFunc("/confirmation", controller.ConfirmationHandler)
+	http.HandleFunc("/confirmationSup", controller.ConfirmationSupHandler)
 	http.HandleFunc("/supprimer", controller.SupprimerPersoHandler)
 	http.HandleFunc("/modifier", controller.ModifierPersoHandler)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
