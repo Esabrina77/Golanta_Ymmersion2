@@ -1,4 +1,4 @@
-<h1>Mode d'accès au blog</h1>
+<h1>Mode d'accès au Projet GOLANTA</h1>
 
 <p>Pour utiliser ce code, suivez les étapes suivantes :</p>
 

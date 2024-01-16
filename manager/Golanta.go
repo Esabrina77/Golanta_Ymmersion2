@@ -19,12 +19,14 @@ var ListUser []LoginUser
 // Structure de sauvegarde des commentaires
 type Comment struct {
 	Pseudo      string `json:"pseudo"`
-	NomFilm     string `json:"nom_film"`
+	NomPerso    string `json:"nom"`
 	Commentaire string `json:"commentaire"`
 }
 
-// structure globale de chaque catégorie
+// structure globale de chaque personnage
 type Aventurier struct {
+	ID        int      `json:"id"`
+	Image     string   `json:"image"`
 	Nom       string   `json:"nom"`
 	Capacites []string `json:"capacites"`
 }
@@ -83,7 +85,7 @@ func MarkLogin(email string, password string, pseudo string) {
 	users = append(users, newLogin)
 
 	//Convertir lelogin en JSON
-	data, err := json.Marshal(users)
+	data, err := json.MarshalIndent(users, "", " ")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -170,7 +172,7 @@ func ChargerPersonnages() ([]Aventurier, error) {
 }
 
 func SauvegarderPersonnages(personnages []Aventurier) error {
-	data, err := json.Marshal(personnages)
+	data, err := json.MarshalIndent(personnages, "", " ")
 	if err != nil {
 		return err
 	}

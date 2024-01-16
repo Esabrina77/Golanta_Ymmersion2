@@ -8,6 +8,22 @@
 	<link rel="icon" type="image/x-icon" href="/assets/icons/iconeNetflix.png">
     <link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css" >
 	<title>#add-article</title>
+	<script>
+		function limitCheckboxSelection() {
+		  var checkboxes = document.getElementsByName('capacite');
+		  var checkedCount = 0;
+		  for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i].checked) {
+			  checkedCount++;
+			}
+		  }
+		  if (checkedCount > 6) {
+			alert("Vous ne pouvez sélectionner que 6 capacités maximum.");
+			return false;
+		  }
+		}
+	  </script>
+ 
 </head>
 <body >
     <header>
@@ -24,20 +40,54 @@
 		   </div>
 			</a>
 	</header>
-
- 
-
-    <div id="personnage">
+	
+	<div id="personnage">
 		<div class="Affiche">
-
 			<h1 style="font-size: 30px;">CREER VOTRE PERSONNAGE</h1>
         </div>
 			<div class="create" style="font-size: 20px;">
 				<h1>Ajouter un personnage</h1>
-				<form action="/ajout_perso" method="POST">
-					<label for="titre">Nom :</label>
-					<input type="text" id="titre" name="titre" required><br>
-			
+				<form action="/ajout_perso" method="POST" onsubmit="return limitCheckboxSelection();">
+		<label for="nom">Nom :</label>
+		<input type="text" id="nom" name="nom" required><br>	
+		
+		<div id="imgPerso">
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/trevor.png">
+				<img src="assets/image/perso/trevor.png" alt="trevor">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/robert.png">
+				<img src="assets/image/perso/robert.png" alt="robert">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/ellie-zombie.png">
+				<img src="assets/image/perso/ellie-zombie.png" alt="ellie-zombie">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/lara_by.png">
+				<img src="assets/image/perso/lara_by.png" alt="lara_by">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/NathanUncharted.png">
+				<img src="assets/image/perso/NathanUncharted.png" alt="NathanUncharted">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/miranda.png">
+				<img src="assets/image/perso/miranda.png" alt="miranda">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/lastOfUs.png">
+				<img src="assets/image/perso/lastOfUs.png" alt="lastOfUs">
+			  </label>
+			  <label>
+				<input type="radio" name="personnage" value="assets/image/perso/sabrina.png">
+				<img src="assets/image/perso/sabrina.png" alt="sabrina">
+			  </label>
+			  
+		</div>
+		
+		<div id="capacite">	
   <input type="checkbox" name="capacite" value="allumer_feu"> Capacité à allumer un feu<br>
   <input type="checkbox" name="capacite" value="construction_abris"> Compétences en construction d'abris<br>
   <input type="checkbox" name="capacite" value="trouver_nourriture"> Capacité à trouver de la nourriture<br>
@@ -58,7 +108,7 @@
   <input type="checkbox" name="capacite" value="resilience"> Résilience<br>
   <input type="checkbox" name="capacite" value="orientation"> Orientation<br>
   <input type="checkbox" name="capacite" value="aventure"> Sens de l'aventure<br>
-	
+   </div>
   <input type="submit" value="Ajouter">
 	</form>
     </div>

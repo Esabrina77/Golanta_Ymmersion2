@@ -112,3 +112,18 @@
   }
 
     /*-------------Body page-------------*/
+
+  #imgPerso{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  }
+
+  #imgPerso > label> img{
+    width: 15vh;
+    height:26vh;
+  }

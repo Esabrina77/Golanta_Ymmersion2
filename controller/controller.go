@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/sessions"
 )
@@ -103,17 +104,17 @@ func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	var session *sessions.Session
 	//recupérer les données du formulaire de connexion
-	email := r.FormValue("email")
+	// email := r.FormValue("email")
 	password := r.FormValue("password")
 	pseudo := r.FormValue("pseudo")
 
-	fmt.Println("l' email:", email)
+	// fmt.Println("l' email:", email)
 	fmt.Println("le password:", password)
 	users := manager.RetrieveUser()
 	var login bool
 
 	for _, user := range users {
-		if user.Email == email && user.Password == password && user.Pseudo == pseudo {
+		if /*user.Email == email &&*/ user.Password == password && user.Pseudo == pseudo {
 			//verifier si le login est correcte
 			login = true
 			break
@@ -156,18 +157,28 @@ func AjouterPersoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
-		nom := r.FormValue("nom")
-		capacites := r.Form["capacite"]
 
-		aventurier := manager.Aventurier{
-			Nom:       nom,
-			Capacites: capacites,
-		}
+		nom := r.FormValue("nom")
+		image := r.FormValue("personnage")
+		capacites := r.Form["capacite"]
 		personnages, err := manager.ChargerPersonnages()
 		if err != nil {
 			fmt.Printf("ERREUR: %#v\n", err)
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
 			return
+		}
+		//générer un nouvel ID
+		var LastID int
+		if len(personnages) > 0 {
+			LastID = personnages[len(personnages)-1].ID
+		}
+		newID := LastID + 1
+
+		aventurier := manager.Aventurier{
+			ID:        newID,
+			Image:     image,
+			Nom:       nom,
+			Capacites: capacites,
 		}
 
 		//Ajout d'un nouveau personnage
@@ -196,7 +207,93 @@ func MyListHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Personnages: personnages,
 	}
+	fmt.Printf("list des PERSONNAGES : %#v\n", perso)
 	inittemplate.Temp.ExecuteTemplate(w, "myList", perso)
+}
+func SupprimerPersoHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	personnageID := r.URL.Query().Get("personnageID")
+	if personnageID == "" {
+		http.Error(w, "Invalid personnage ID", http.StatusBadRequest)
+		return
+	}
+
+	// Convertir l'ID du personnage en entier
+	id, err := strconv.Atoi(personnageID)
+	if err != nil {
+		http.Error(w, "Invalid personnage ID", http.StatusBadRequest)
+		return
+	}
+
+	// Vérifier que l'ID du personnage existe dans votre structure de données
+	personnages, err := manager.ChargerPersonnages()
+	if err != nil {
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	var foundIndex = -1
+	for i, perso := range personnages {
+		if perso.ID == id {
+			foundIndex = i
+			break
+		}
+	}
+
+	if foundIndex == -1 {
+		http.Error(w, "Personnage not found", http.StatusNotFound)
+		return
+	}
+
+	// Supprimer le personnage de la liste
+	personnages = append(personnages[:foundIndex], personnages[foundIndex+1:]...)
+
+	// Sauvegarder la liste mise à jour des personnages
+	err = manager.SauvegarderPersonnages(personnages)
+	if err != nil {
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	http.Redirect(w, r, "/confirmationSup", http.StatusSeeOther)
+}
+
+func ModifierPersoHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		personnageID := r.FormValue("personnageID")
+		nom := r.FormValue("nom")
+		capacites := r.Form["capacite"]
+
+		personnages, err := manager.ChargerPersonnages()
+		if err != nil {
+			fmt.Printf("ERREUR: %#v\n", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+
+		// Recherche du personnage à modifier
+		for i, perso := range personnages {
+			if strconv.Itoa(perso.ID) == personnageID {
+				personnages[i].Nom = nom
+				personnages[i].Capacites = capacites
+				break
+			}
+		}
+
+		// Sauvegarde de la liste des personnages
+		err = manager.SauvegarderPersonnages(personnages)
+		if err != nil {
+			fmt.Printf("ERREUR: %#v\n", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+
+		http.Redirect(w, r, "/confirmation", http.StatusSeeOther)
+	}
 }
 
 func CommentsHandler(w http.ResponseWriter, r *http.Request) {
@@ -211,10 +308,9 @@ func CommentsHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "comments", comments)
 }
-
 func SubmitCommentHandler(w http.ResponseWriter, r *http.Request) {
 	commentaire := r.FormValue("commentaire")
-	nomFilm := r.FormValue("nom_film")
+	nomPerso := r.FormValue("name")
 	pseudo, err := GetEmailSession(r)
 	if err != nil {
 		//Rediriger l'utilisateur vers la page de connexion
@@ -224,7 +320,7 @@ func SubmitCommentHandler(w http.ResponseWriter, r *http.Request) {
 
 	comment := manager.Comment{
 		Pseudo:      pseudo,
-		NomFilm:     nomFilm,
+		NomPerso:    nomPerso,
 		Commentaire: commentaire,
 	}
 

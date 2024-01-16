@@ -26,16 +26,19 @@
 		</header>
         <div id="HEAD">
             <div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
-                <h1 style="color: rgb(255, 235, 235); ">Ma liste de films</h1>
+                <h1 style="color: rgb(255, 235, 235); ">La listes des personnages</h1>
                     </div>
 
 <div class="SomeFilms">
+	<h1>LES PERSO</h1>
 	<ul>
-		{{range .}}
-
+		{{range .Personnages}}
 		<li>Nom : {{.Nom}}</li>
+		<img src="{{.Image}}" alt="{{.Image}}">
 		<li>Capacités : {{range .Capacites}}{{.}}<br>{{end}}</li>
 		<br>
+		<li><a href="/supprimer?personnageID={{.ID}}">Supprimer</a></li>
+		<li><a href="/modifier">Modifier</a></li>
 		{{end}}
 	  </ul>
 </div>
