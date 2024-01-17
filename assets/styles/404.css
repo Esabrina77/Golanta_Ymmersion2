@@ -32,13 +32,7 @@
   }
   
   
-  
-  body{
-  background-color: rgba(3, 3, 3, 0.929);
-  position: relative;
-  display: flex;
-   flex-direction: column;
-  }
+
   
   /* CONTENU DE L'EN-TETE FIXE */
   header{
@@ -59,92 +53,129 @@
   
   }
   
-  .SYNOPSIS{
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: groove 2px;
+
+  .SYNOPSIS {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: groove 2px;
   
   }
-  .SYNOPSIS span{
-  padding: 0 10px;
-  border-right: 2px solid rgb(0, 0, 0);
-  }
-  .SYNOPSIS span:last-child{
-  border-right:none;
-  }
-  #SynopsisImage img{
-  width: 120px;
-  height: 80px;
+  
+  .SYNOPSIS span {
+    padding: 0 10px;
+    border-right: 2px solid rgb(0, 0, 0);
   }
   
-  .Start{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  padding:5px 10px;
-  border: 5px;
-  background-color: rgba(245, 244, 244, 0.774);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
-  }
-  .Start img{
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  .SYNOPSIS span:last-child {
+    border-right: none;
   }
   
-  #infosProfil{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: auto;
-  height: auto;
-  padding: 10px 8px;
-  justify-content: space-between;
-  border-style: groove;
-  border-radius: 20% 57% 4px;
-  background-color: rgba(255, 255, 255, 0.774);
+  #SynopsisImage img {
+    width: 100px;
+    height: 120px;
+    transition: transform 0.3s ease;
   }
-  #LoginProfil{
-  border-radius: 50%;
-  width: auto;
+  /*Tremblement de terre*/
+  @keyframes earthquake {
+    0% {
+      transform: translate(0, 0) rotate(0);
+    }
+    25% {
+      transform: translate(-2px, -2px) rotate(-1deg);
+    }
+    50% {
+      transform: translate(2px, 2px) rotate(1deg);
+    }
+    75% {
+      transform: translate(-2px, -2px) rotate(-1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0);
+    }
   }
-  #LoginProfil img{
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  #SynopsisImage img:hover {
+    animation: earthquake 0.7s;
+    transform-origin: center;
   }
-  .text{
-    font-family: NetflixSansBold ;
+  
+  
+  .Start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 5px 10px;
+    border: 5px;
+    background-color: rgba(245, 244, 244, 0.774);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+  }
+  
+  .Start img {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+  }
+  
+  /* ESPACE PROFIL UTILISATEUR */
+  #infosProfil {
+    font-family: NetflixSansBold;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 10px 8px;
+    justify-content: space-between;
+  }
+  
+  a :hover {
+    color: white;
+  }
+  #imageProfil img {
+    transition: transform 0.8s ease;
+  }
+  
+  #imageProfil img:hover {
+    transform: rotate(360deg);
+  }
+  #imageProfil img {
+    border-radius: 50%;
+    width: 7vw;
+    height: 12vh;
+  }
+  
+  .text {
+    font-family: NetflixSansBold;
     margin: 5px 0;
     display: flex;
     padding: 0 5px;
     align-items: center;
     text-align: center;
-    color: #fff;
-  }
-  a{
-  text-decoration: none;
-  color: black;
   }
   
+  
+  /* ICONES CARACTERISTIQUES DE DIFFERENTS LIEUX */
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
 body{
-    background-color: black;
     color: white;
-    width: 99vw;
-    height: 99vh;
+  
     background-image: url('/assets/image/totem5.jpg');
+    backdrop-filter: blur(8px);
+    background-size: 130%;
     background-repeat: no-repeat;
     overflow-x: hidden;
     overflow-y: hidden;
     background-size: cover;
-    margin: 0%;
 }
-    
+
 
 
 .container {

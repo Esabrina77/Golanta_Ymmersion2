@@ -9,21 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="/assets/icons/iconeNetflix.png">
 	<link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css">
 	<title>#add-article</title>
-	<script>
-		function limitCheckboxSelection() {
-			var checkboxes = document.getElementsByName('capacite');
-			var checkedCount = 0;
-			for (var i = 0; i < checkboxes.length; i++) {
-				if (checkboxes[i].checked) {
-					checkedCount++;
-				}
-			}
-			if (checkedCount > 6) {
-				alert("Vous ne pouvez sélectionner que 6 capacités maximum.");
-				return false;
-			}
-		}
-	</script>
+
 
 </head>
 
@@ -31,36 +17,34 @@
 	<header>
 		<div class="SYNOPSIS">
 			<div id="SynopsisImage">
-				<a href="/myList"> <img src="../assets/image/logo-Koh-Lanta1.jpg" alt="logo-netflix-1536"> </a>
+				<a href="/form"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
 			</div>
 			<a href="/myList">
-			<div class="Start">
+				<div class="Start">
 					<span>VOIR </span>
 					<span>TOUS LES</span>
 					<span>PERSONNAGES</span>
 					<img src="../assets/icons/loupe.png" alt="loupe">
-			</div>
-		</a>
+				</div>
+			</a>
 			<a href="/connexion">
 				<div id="infosProfil">
 					<div id="imageProfil">
-						<img src="/assets/icons/icon-profile-1.jpg" alt="Profil_Icon" width="50px" height="50px">
+						<img src="/assets/image/masque.png" alt="Profil_Icon" width="50px" height="50px">
 					</div>
-					<p>QUITTER</p>
+					<p style="color: red;">QUITTER</p>
 				</div>
 			</a>
 	</header>
 
 	<div id="personnage">
-		<div class="Affiche">
-			<h1 style="font-size: 30px;">CREER VOTRE PERSONNAGE</h1>
-		</div>
 
 		<div class="create" style="font-size: 20px;">
 			<form action="/ajout_perso" method="POST" onsubmit="return limitCheckboxSelection();">
-				<label for="nom">Nom :</label>
-				<input type="text" id="nom" name="nom" required><br>
-
+				<div class="nom">
+					<label for="nom">Nom de votre perso:</label>
+					<input type="text" id="nom" name="nom" required><br>
+				</div>
 				<div id="imgPerso">
 					<label>
 						<input type="radio" name="personnage" value="assets/image/perso/trevor.png">
@@ -98,45 +82,75 @@
 				</div>
 
 				<div id="capacite">
-					<input type="checkbox" name="capacite" value="Capacité à allumer un feu"> Capacité à allumer un
-					feu<br>
-					<input type="checkbox" name="capacite" value="Compétences en construction d'abris"> Compétences en
-					construction d'abris<br>
-					<input type="checkbox" name="capacite" value="Capacité à trouver de la nourriture"> Capacité à
-					trouver de la nourriture<br>
-					<input type="checkbox" name="capacite" value="Connaissance des plantes comestibles"> Connaissance
-					des plantes comestibles<br>
-					<input type="checkbox" name="capacite" value="Connaissance des sources d'eau potable"> Connaissance
-					des sources d'eau potable<br>
-					<input type="checkbox" name="capacite" value="Capacité à pêcher"> Capacité à pêcher<br>
-					<input type="checkbox" name="capacite" value="Endurance physique"> Endurance physique<br>
-					<input type="checkbox" name="capacite" value="Force physique"> Force physique<br>
-					<input type="checkbox" name="capacite" value="Agilité"> Agilité<br>
-					<input type="checkbox" name="capacite" value="Équilibre"> Équilibre<br>
-					<input type="checkbox" name="capacite" value="Compétences en natation"> Compétences en natation<br>
-					<input type="checkbox" name="capacite" value="Stratégie"> Stratégie<br>
-					<input type="checkbox" name="capacite" value="Travail d'équipe"> Travail d'équipe<br>
-					<input type="checkbox" name="capacite" value="Compétences en négociation"> Compétences en
-					négociation<br>
-					<input type="checkbox" name="capacite" value="Compétences en persuasion"> Compétences en
-					persuasion<br>
-					<input type="checkbox" name="capacite" value="Mentalité compétitive"> Mentalité compétitive<br>
-					<input type="checkbox" name="capacite" value="Gestion du stress"> Gestion du stress<br>
-					<input type="checkbox" name="capacite" value="Résilience"> Résilience<br>
-					<input type="checkbox" name="capacite" value="Orientation"> Orientation<br>
-					<input type="checkbox" name="capacite" value="Sens de l'aventure"> Sens de l'aventure<br>
+					<div class="atouts">
+						<h3>Atouts de votre Aventurier (max 6 &#128515;)</h3>
+					</div>
+					<div id="part1">
+						Capacité à allumer un feu<input type="checkbox" name="capacite"
+							value="Capacité à allumer un feu"> <br>
+						Compétences en construction d'abris<input type="checkbox" name="capacite"
+							value="Compétences en construction d'abris"><br>
+						Capacité à trouver de la nourriture <input type="checkbox" name="capacite"
+							value="Capacité à trouver de la nourriture"><br>
+						Connaissance des plantes comestibles<input type="checkbox" name="capacite"
+							value="Connaissance des plantes comestibles"><br>
+						Connaissance des sources d'eau potable<input type="checkbox" name="capacite"
+							value="Connaissance des sources d'eau potable"><br>
+						Capacité à pêcher<input type="checkbox" name="capacite" value="Capacité à pêcher"><br>
+						Endurance physique<input type="checkbox" name="capacite" value="Endurance physique"><br>
+						Force physique<input type="checkbox" name="capacite" value="Force physique"><br>
+						Agilité<input type="checkbox" name="capacite" value="Agilité"><br>
+						Équilibre<input type="checkbox" name="capacite" value="Équilibre"><br>
+						Compétences en natation<input type="checkbox" name="capacite"
+							value="Compétences en natation"><br>
+					</div>
+					<div id="part2">
+						Stratégie<input type="checkbox" name="capacite" value="Stratégie"><br>
+						Travail d'équipe<input type="checkbox" name="capacite" value="Travail d'équipe"><br>
+						Compétences en négociation<input type="checkbox" name="capacite"
+							value="Compétences en négociation"><br>
+						Compétences en persuasion<input type="checkbox" name="capacite"
+							value="Compétences en persuasion"><br>
+						Mentalité compétitive<input type="checkbox" name="capacite" value="Mentalité compétitive"><br>
+						Gestion du stress<input type="checkbox" name="capacite" value="Gestion du stress"> <br>
+						Résilience<input type="checkbox" name="capacite" value="Résilience"><br>
+						Orientation<input type="checkbox" name="capacite" value="Orientation"> <br>
+						Sens de l'aventure<input type="checkbox" name="capacite" value="Sens de l'aventure"><br>
+					</div>
+
+					<div id="submit">
+						<input type="submit" value="Ajouter">
+					</div>
+
 				</div>
-				<input type="submit" value="Ajouter">
 			</form>
 		</div>
 
-
-		<a href="/myList">
-			<div id="Bottom">
-				<p><b>Ma liste</b></p>
-		</a>
 	</div>
 </body>
+<script>
+	const checkboxes = document.querySelectorAll('#capacite input[type="checkbox"]');
+const maxSelection = 6;
 
+checkboxes.forEach((checkbox) => {
+checkbox.addEventListener('change', () => {
+  const selectedCheckboxes = document.querySelectorAll('#capacite input[type="checkbox"]:checked');
+  if (selectedCheckboxes.length > maxSelection) {
+	checkbox.checked = false;
+  }
+
+  const uncheckedCheckboxes = document.querySelectorAll('#capacite input[type="checkbox"]:not(:checked)');
+  if (selectedCheckboxes.length >= maxSelection) {
+	uncheckedCheckboxes.forEach((cb) => {
+	  cb.disabled = true;
+	});
+  } else {
+	uncheckedCheckboxes.forEach((cb) => {
+	  cb.disabled = false;
+	});
+  }
+});
+});
+  </script>
 </html>
 {{end}}
