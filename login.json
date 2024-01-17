@@ -13,5 +13,10 @@
   "email": "alan.philipiert@ynov.com",
   "password": "azertyuiop",
   "pseudo": "Alan"
+ },
+ {
+  "email": "test@test.fr",
+  "password": "test",
+  "pseudo": "test"
  }
 ]

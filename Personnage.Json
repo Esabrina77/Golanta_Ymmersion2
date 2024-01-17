@@ -36,5 +36,18 @@
    "Stratégie",
    "Travail d'équipe"
   ]
+ },
+ {
+  "id": 6,
+  "image": "assets/image/perso/trevor.png",
+  "nom": "test",
+  "capacites": [
+   "Stratégie",
+   "Mentalité compétitive",
+   "Gestion du stress",
+   "Résilience",
+   "Orientation",
+   "Sens de l'aventure"
+  ]
  }
 ]

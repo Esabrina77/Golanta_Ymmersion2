@@ -55,11 +55,22 @@ body {
     margin: 50px auto; 
     height: auto;
     backdrop-filter: blur(50px);
-
     color: #ffffff;
-
   }
   
+  .Direction a{
+    padding: 5px 10px;
+    font-size:calc(0.3em + 0.4rem);
+      color: #000000;
+      text-decoration: none;
+  }
+  
+  .Direction a:hover{
+    color: #a40505;
+    font-family: NetflixSansBold;
+    text-decoration: none;
+    font-size:calc(0.4em + 0.4rem);
+  }
   h1 {
     text-align: center;
   }
@@ -102,19 +113,7 @@ body {
     background-color: #ffffff;
 }
 
-.Direction a{
-  padding: 5px 10px;
-  font-size:calc(0.3em + 0.4rem);
-    color: #000000;
-    text-decoration: none;
-}
 
-.Direction a:hover{
-  color: #a40505;
-  font-family: NetflixSansBold;
-  text-decoration: none;
-  font-size:calc(0.4em + 0.4rem);
-}
 
 input[type="submit"] {
   padding: 10px 20px;
@@ -132,8 +131,9 @@ input[type="submit"]:hover {
   font-family: NetflixSansRegular;
 }
 
-input[type="email"],
-input[type="password"] {
+input[type="text"],
+input[type="password"],
+input[type="email"]{
   padding: 5px;
   font-size: 16px;
   border: none;
