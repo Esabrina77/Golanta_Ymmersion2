@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="/assets/icons/iconeNetflix.png">
 	<link rel="stylesheet" type="text/css" href="/assets/styles/ajout.css">
 	<title>#add-article</title>
-
+	
 
 </head>
 
@@ -17,7 +17,7 @@
 	<header>
 		<div class="SYNOPSIS">
 			<div id="SynopsisImage">
-				<a href="/form"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
+				<a href="/myList"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
 			</div>
 			<a href="/myList">
 				<div class="Start">
@@ -32,7 +32,7 @@
 					<div id="imageProfil">
 						<img src="/assets/image/masque.png" alt="Profil_Icon" width="50px" height="50px">
 					</div>
-					<p style="color: red;">QUITTER</p>
+					<p>QUITTER</p>
 				</div>
 			</a>
 	</header>
@@ -82,9 +82,6 @@
 				</div>
 
 				<div id="capacite">
-					<div class="atouts">
-						<h3>Atouts de votre Aventurier (max 6 &#128515;)</h3>
-					</div>
 					<div id="part1">
 						Capacité à allumer un feu<input type="checkbox" name="capacite"
 							value="Capacité à allumer un feu"> <br>
@@ -117,11 +114,9 @@
 						Orientation<input type="checkbox" name="capacite" value="Orientation"> <br>
 						Sens de l'aventure<input type="checkbox" name="capacite" value="Sens de l'aventure"><br>
 					</div>
-
 					<div id="submit">
 						<input type="submit" value="Ajouter">
 					</div>
-
 				</div>
 			</form>
 		</div>
@@ -133,24 +128,23 @@
 const maxSelection = 6;
 
 checkboxes.forEach((checkbox) => {
-checkbox.addEventListener('change', () => {
-  const selectedCheckboxes = document.querySelectorAll('#capacite input[type="checkbox"]:checked');
-  if (selectedCheckboxes.length > maxSelection) {
-	checkbox.checked = false;
-  }
+  checkbox.addEventListener('change', () => {
+    const selectedCheckboxes = document.querySelectorAll('#capacite input[type="checkbox"]:checked');
+    if (selectedCheckboxes.length > maxSelection) {
+      checkbox.checked = false;
+    }
 
-  const uncheckedCheckboxes = document.querySelectorAll('#capacite input[type="checkbox"]:not(:checked)');
-  if (selectedCheckboxes.length >= maxSelection) {
-	uncheckedCheckboxes.forEach((cb) => {
-	  cb.disabled = true;
-	});
-  } else {
-	uncheckedCheckboxes.forEach((cb) => {
-	  cb.disabled = false;
-	});
-  }
+    checkboxes.forEach((cb) => {
+      if (selectedCheckboxes.length >= maxSelection && !cb.checked) {
+        cb.disabled = true;
+      } else {
+        cb.disabled = false;
+      }
+    });
+  });
 });
-});
-  </script>
+
+
+	</script>
 </html>
 {{end}}

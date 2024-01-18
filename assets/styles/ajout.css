@@ -38,7 +38,6 @@ body {
   background-repeat: no-repeat;
   backdrop-filter: blur(10px);
   background-size: 130%;
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -116,7 +115,7 @@ body {
     height: auto;
     padding: 5px 10px;
     border: 5px;
-    background-color: rgba(245, 244, 244, 0.774);
+    background-color: rgba(99, 97, 97, 0.774);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     border-radius: 50px;
   }
@@ -140,7 +139,7 @@ body {
   }
   
   a :hover {
-    color: rgb(255, 0, 0);
+    color: rgb(255, 46, 46);
   }
   #imageProfil img {
     transition: transform 0.8s ease;
@@ -157,7 +156,7 @@ body {
 
   a{
   text-decoration: none;
-  color: black;
+  color: rgb(26, 137, 69);
   }
 
     /*-------------Body page-------------*/
@@ -184,8 +183,8 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  margin-bottom: 10px;
-  padding-right: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
   }
 
   #imgPerso > label> img{
@@ -241,8 +240,8 @@ body {
 }
 
 #capacite {
+  position: relative;
   display: flex;
-  position:relative;
   background-color: rgba(26, 26, 26, 0.831);
   justify-content: space-between;
   padding: 20px;
@@ -280,12 +279,6 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-#capacite > label {
-  display: block;
-  font-size: 16px;
-  animation: fadeIn 1s ease-in-out;
-}
-
 input[type="submit"] {
   background-color: #224223;
   color: #fff;
@@ -297,7 +290,7 @@ input[type="submit"] {
   font-size: 16px;
   margin-top: 10px;
   cursor: pointer;
-  border-radius: 27% 11% 25px;
+  border-radius: 27% 17% 25px;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -305,10 +298,12 @@ input[type="submit"]:hover {
   animation: pulse 0.5s infinite;
   background-color: #45a049;
 }
+
+input[type="radio"]{
+  display: none;
+}
 #submit{
   position: absolute;
- position: fixed;
-  align-items:center;
   align-self: center;
   margin-bottom: 20px;
   padding: 2px 5px;
@@ -316,13 +311,18 @@ input[type="submit"]:hover {
   left: 50%;
   transform: translateX(-50%);
 }
-.atouts{
-  position: absolute;
-  align-items:center;
-  align-self: center;
-  margin-top: 20px;
-  padding: 2px 10px;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+
+#capacite > label {
+  display: block;
+  font-size: 16px;
+  animation: fadeIn 1s ease-in-out;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+
+
+input[type="radio"]:checked + img {
+  border: 3px solid #3fd15f;
+  border-radius: 45px;
 }
