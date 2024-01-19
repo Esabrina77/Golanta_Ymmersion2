@@ -1,0 +1,56 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+
+@font-face {
+  font-family: MontserratReg;
+  src: url('');
+}
+
+@font-face {
+  font-family: Medieval;
+  src: url('/assets/fonts/MedievalSharp-Regular.ttf');
+}
+
+body {
+  background-image: url('/assets/image/KoloLanta.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  position: relative;
+  backdrop-filter: blur(10px);
+  background-size: 130%;
+}
+
+.allimages {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px; /* Ajustez la largeur maximale selon vos besoins */
+}
+
+.product {
+  flex: 0 0 25%; /* Ajustez la largeur des images selon vos besoins */
+  max-width: 25%; /* Ajustez la largeur maximale des images selon vos besoins */
+  box-sizing: border-box;
+  padding: 10px;
+  /* Ajoutez d'autres styles pour les images */
+}
+
+
+
+.rotate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* ajustez la hauteur selon vos besoins */
+}
+
+.rotate p {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+
+

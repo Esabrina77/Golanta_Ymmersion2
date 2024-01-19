@@ -34,14 +34,11 @@
 				<a href="/myList"> <img src="../assets/image/logo-Koh-Lanta1.jpg" alt="logo-netflix-1536"> </a>
 			</div>
 
-			<a href="/form">
-				<div class="Start">
-					<span>créer </span>
-					<span>un nouveau</span>
-					<span>personnage</span>
-					<img src="../assets/icons/loupe.png" alt="loupe">
-				</div>
-			</a>
+			<form action="/recherchePersonnage" method="get">
+				<label for="search">Recherche :</label>
+				<input type="text" id="search" name="search" placeholder="Nom du personnage">
+				<button type="submit">Rechercher</button>
+			</form>
 
 			<a href="/connexion">
 				<div id="infosProfil">
@@ -55,14 +52,17 @@
 
 	<div id="personnage">
 		<div class="Affiche">
-			<h1 style="font-size: 30px;">CREER VOTRE PERSONNAGE</h1>
+			<h1 style="font-size: 30px;">MODIFIER VOTRE PERSONNAGE</h1>
 		</div>
 
 		<div class="form-container">
-			<form action="/modifier?personnageID={{.ID}}" method="POST">
+			<form action="/modifier" method="post">
+				<!-- Ajoutez les champs du formulaire pour la modification du personnage ici -->
 				<input type="hidden" name="personnageID" value="{{.ID}}">
+				<label for="nom">Nom :</label>
 				<input type="text" id="nom" name="nom" value="{{.Nom}}" required><br>
-				<input type="text" id="nom" name="nom" required><br>
+				<input type="text" id="nom_modifie" name="nom" required><br>
+
 				<input type="checkbox" name="capacite" value="allumer_feu"> Capacité à allumer un feu<br>
 				<input type="checkbox" name="capacite" value="construction_abris"> Compétences en construction
 				d'abris<br>

@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/gorilla/sessions"
 )
@@ -44,6 +45,11 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "connexion", nil)
 }
+func StoryHandler(w http.ResponseWriter, r *http.Request) {
+
+	inittemplate.Temp.ExecuteTemplate(w, "story", nil)
+}
+
 func FormHandler(w http.ResponseWriter, r *http.Request) {
 
 	inittemplate.Temp.ExecuteTemplate(w, "form", nil)
@@ -100,7 +106,7 @@ func TreatInscriptionHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/form?success=Login_registred", http.StatusFound)
+		http.Redirect(w, r, "/story?success=Login_registred", http.StatusFound)
 	}
 
 }
@@ -143,7 +149,7 @@ func TreatConnexionHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/form", http.StatusFound)
+		http.Redirect(w, r, "/story", http.StatusFound)
 	} else {
 		//rediriger vers la page de connexion avec un message d'erreur
 		http.Redirect(w, r, "/connexion?error=invalid_login_try_again", http.StatusFound)
@@ -263,37 +269,95 @@ func SupprimerPersoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ModifierPersoHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "POST" {
-		personnageID := r.FormValue("personnageID")
-		nom := r.FormValue("nom")
-		capacites := r.Form["capacite"]
+	if r.Method == http.MethodGet {
+		personnageID := r.URL.Query().Get("personnageID")
+		if personnageID == "" {
+			http.Error(w, "Invalid personnage ID", http.StatusBadRequest)
+			return
+		}
 
+		// Convertir l'ID du personnage en entier
+		id, err := strconv.Atoi(personnageID)
+		if err != nil {
+			http.Error(w, "Invalid personnage ID", http.StatusBadRequest)
+			return
+		}
+
+		// Charger le personnage à partir de la liste
 		personnages, err := manager.ChargerPersonnages()
 		if err != nil {
-			fmt.Printf("ERREUR: %#v\n", err)
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
 			return
 		}
 
-		// Recherche du personnage à modifier
-		for i, perso := range personnages {
-			if strconv.Itoa(perso.ID) == personnageID {
-				personnages[i].Nom = nom
-				personnages[i].Capacites = capacites
+		var foundPersonnage *manager.Aventurier
+		for _, perso := range personnages {
+			if perso.ID == id {
+				foundPersonnage = &perso
 				break
 			}
 		}
 
-		// Sauvegarde de la liste des personnages
-		err = manager.SauvegarderPersonnages(personnages)
-		if err != nil {
-			fmt.Printf("ERREUR: %#v\n", err)
-			http.Error(w, "Internal server error", http.StatusInternalServerError)
+		if foundPersonnage == nil {
+			http.Error(w, "Personnage not found", http.StatusNotFound)
 			return
 		}
 
-		http.Redirect(w, r, "/confirmation", http.StatusSeeOther)
+		// Passez les données du personnage à votre template HTML
+		perso := struct {
+			Personnage *manager.Aventurier
+		}{
+			Personnage: foundPersonnage,
+		}
+		inittemplate.Temp.ExecuteTemplate(w, "modifier", perso)
+		return
 	}
+	if r.Method == http.MethodPost {
+		// Traitement du formulaire de modification ici
+
+		// Après la modification, vous pouvez rediriger l'utilisateur
+		http.Redirect(w, r, "/confirmation", http.StatusSeeOther)
+		return
+	}
+	http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+}
+
+func RecherchePersonnageHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Récupérez le terme de recherche depuis les paramètres de la requête
+	searchTerm := r.URL.Query().Get("search")
+
+	// Chargez la liste complète des personnages
+	personnages, err := manager.ChargerPersonnages()
+	if err != nil {
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	// Effectuez la recherche
+	var resultats []manager.Aventurier
+	for _, perso := range personnages {
+		// Ajoutez votre logique de recherche ici, par exemple, recherche par nom
+		if strings.Contains(strings.ToLower(perso.Nom), strings.ToLower(searchTerm)) {
+			resultats = append(resultats, perso)
+		}
+	}
+
+	// Passez les résultats de la recherche à votre template HTML
+	resultatsData := struct {
+		Resultats  []manager.Aventurier
+		SearchTerm string
+	}{
+		Resultats:  resultats,
+		SearchTerm: searchTerm,
+	}
+
+	// Utilisez votre template pour afficher les résultats de la recherche
+	inittemplate.Temp.ExecuteTemplate(w, "search", resultatsData)
 }
 
 func CommentsHandler(w http.ResponseWriter, r *http.Request) {

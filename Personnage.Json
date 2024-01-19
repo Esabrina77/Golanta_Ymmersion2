@@ -52,17 +52,14 @@
  },
  {
   "id": 7,
-  "image": "assets/image/perso/lara_by.png",
-  "nom": "anna",
+  "image": "assets/image/perso/NathanUncharted.png",
+  "nom": "ssdefrgthjkuli",
   "capacites": [
    "Capacité à allumer un feu",
    "Compétences en construction d'abris",
    "Capacité à trouver de la nourriture",
-   "Connaissance des plantes comestibles",
    "Stratégie",
-   "Travail d'équipe",
-   "Compétences en négociation",
-   "Compétences en persuasion"
+   "Travail d'équipe"
   ]
  }
 ]

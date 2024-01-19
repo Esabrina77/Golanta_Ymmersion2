@@ -17,7 +17,7 @@
 	<header>
 		<div class="SYNOPSIS">
 			<div id="SynopsisImage">
-				<a href="/myList"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
+				<a href="/myList"> <img src="../assets/image/Sans titre.png" alt="logo-golanta-1536"> </a>
 			</div>
 			<a href="/myList">
 				<div class="Start">
@@ -27,6 +27,11 @@
 					<img src="../assets/icons/loupe.png" alt="loupe">
 				</div>
 			</a>
+			<form action="/search" method="get">
+				<label for="search">Recherche :</label>
+				<input type="text" id="search" name="search" placeholder="Nom du personnage">
+				<button type="submit">Rechercher</button>
+			</form>
 			<a href="/connexion">
 				<div id="infosProfil">
 					<div id="imageProfil">
@@ -72,7 +77,7 @@
 					</label>
 					<label>
 						<input type="radio" name="personnage" value="assets/image/perso/lastOfUs.png">
-						<img src="assets/image/perso/lastOfUs.png" alt="lastOfUs">
+						<img src="assets/image/perso/lastOfUs.png" alt="Alan">
 					</label>
 					<label>
 						<input type="radio" name="personnage" value="assets/image/perso/sabrina.png">

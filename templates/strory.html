@@ -1,0 +1,124 @@
+{{define "story"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/image/cinema-logo.jpg">
+	<link rel="stylesheet" type="text/css" href="/assets/styles/story.css">
+	<title>Histoire</title>
+</head>
+
+<body>
+	
+		<div class="content" style="display: flex; justify-content: center;align-items: center;">
+			<div><a href="/form"><h2 style="color: rgba(11, 159, 33, 0.922);">&#128513;SWIPER-></h2></a></div>
+        <div> <h1 style="color: rgba(192, 104, 36, 0.922); ">MODE HISTOIRE</h1></div>
+		</div>
+
+		<div class="SomePerso">
+            <div class="navigation-buttons">
+                <button onclick="changePersonnage(-1)">Précédent</button>
+                <button onclick="changePersonnage(1)">Suivant</button>
+            </div>
+            <div id="personnage-container">
+                <!-- Contenu du personnage sera ajouté ici dynamiquement -->
+                <p id="personnage-nom"></p>
+                <img id="personnage-image" src="" alt="Personnage Image">
+                <p id="personnage-text"></p>
+            </div>
+        
+           
+        </div>
+        
+
+</body>
+<script>
+    const personnages = [
+    {
+            Nom: "Trevor (GTA V)",
+            image: "assets/image/perso/trevor.png",
+            texte: "Pilote de l'extrême et criminel notoire, Trevor rejoint l'aventure de Koh-Lanta pour échapper à la vie urbaine frénétique. Sauvage et imprévisible, il apportera une dose d'adrénaline à l'île. Choisissez Trevor pour sa ténacité et sa capacité à relever n'importe quel défi."
+        },
+        {
+            Nom: "Sabrina(Call of Duty)",
+            image: "assets/image/perso/sabrina.png",
+            texte: "Soldate d'élite aguerrie, Sabrina entre dans Koh-Lanta pour tester ses compétences au-delà du champ de bataille. Sa discipline, sa précision au tir et sa capacité à travailler en équipe seront des atouts cruciaux. Choisissez Sabrina pour sa discipline et son engagement envers la victoire."
+        },
+        {
+            Nom: "Robert (Far Cry Primal)",
+            image: "assets/image/perso/robert.png",
+            texte: "Venu tout droit de l'âge de pierre, Robert possède des compétences de survie inégalées. Ayant maîtrisé la nature sauvage, il participe à Koh-Lanta pour prouver que l'instinct primal peut surmonter tous les obstacles. Choisissez Robert pour son lien profond avec la nature et sa sagesse antique."
+        },
+        {
+            Nom: "Lara Croft (Tomb Raider)",
+            image: "assets/image/perso/lara_by.png",
+            texte: "Archéologue intrépide et aventurière légendaire, Lara Croft embarque dans Koh-Lanta pour un défi ultime. Elle apporte des compétences en survie, une intelligence tactique et un charisme qui peut unir toute l'équipe. Choisissez Lara pour son expérience des terrains hostiles et son esprit aventureux."
+        },
+        {
+            Nom: "Nathan Drake (Uncharted)",
+            image: "assets/image/perso/NathanUncharted.png",
+            texte: "Chasseur de trésors chevronné, Nathan Drake recherche l'aventure dans Koh-Lanta. Sa débrouillardise, ses compétences en escalade et son sens de l'humour font de lui un compagnon idéal. Choisissez Nathan pour son charme, sa polyvalence et sa capacité à résoudre les énigmes."
+        },
+        {
+            Nom: "Miranda (The Last of Us)",
+            image: "assets/image/perso/miranda.png",
+            texte: "Miranda, une survivante déterminée, se joint à Koh-Lanta pour surmonter les traumatismes de son passé. Son agilité, ses compétences de recherche et son esprit combatif seront des atouts cruciaux. Choisissez Miranda pour son courage et sa loyauté."
+        },
+        {
+            Nom: "Alan (Uncharted)",
+            image: "assets/image/perso/lastOfUs.png",
+            texte: "Ancien mercenaire et compagnon d'aventure de Nathan Drake, Alan est prêt à affronter Koh-Lanta. Avec ses compétences de tir, sa résistance physique et son expérience tactique, il contribuera à renforcer l'équipe. Choisissez Alan pour son leadership et sa détermination."
+        },
+        {
+            Nom: "Ellie (The Last of Us)",
+            image: "assets/image/perso/ellie-zombie.png",
+            texte: "Survivante endurcie d'un monde post-apocalyptique, Ellie cherche de nouveaux défis dans Koh-Lanta. Sa détermination, sa force mentale et son habileté au combat en font un atout inestimable. Choisissez Ellie pour son esprit vif et son courage face à l'adversité."
+        },
+        // Ajoutez d'autres personnages selon vos besoins
+    ];
+
+
+    let currentPersonnageIndex = 0;
+
+function changePersonnage(offset) {
+    currentPersonnageIndex += offset;
+
+    if (currentPersonnageIndex < 0) {
+        currentPersonnageIndex = personnages.length - 1;
+    } else if (currentPersonnageIndex >= personnages.length) {
+        currentPersonnageIndex = 0;
+    }
+
+    displayPersonnage();
+}
+
+function displayPersonnage() {
+    const personnage = personnages[currentPersonnageIndex];
+
+    // Update the name
+    const nomElement = document.getElementById("personnage-nom");
+    nomElement.innerText = personnage.Nom;
+
+    // Update the image source
+    const imageElement = document.getElementById("personnage-image");
+    imageElement.src = personnage.image;
+
+    // Update the text
+    const texteElement = document.getElementById("personnage-text");
+    texteElement.innerHTML = ""; // Réinitialise le texte
+
+    // Ajoute chaque lettre du texte progressivement
+    for (let i = 0; i < personnage.texte.length; i++) {
+        setTimeout(() => {
+            texteElement.innerHTML += personnage.texte[i];
+        }, i * 20); // Ajustez la durée entre chaque lettre selon vos préférences
+    }
+}
+
+// Affiche le premier personnage lors du chargement de la page
+displayPersonnage();
+</script>
+</script>
+</html>
+{{end}}

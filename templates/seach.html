@@ -1,0 +1,33 @@
+{{define "search"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/image/cinema-logo.jpg">
+	<link rel="stylesheet" type="text/css" href="/assets/styles/home.css">
+	<title>My_List</title>
+</head>
+
+<body>
+<h2>Résultats de la recherche pour "{{.SearchTerm}}"</h2>
+{{range .Resultats}}
+<div id="personnage">
+    <div id="imagePerso">
+        <img src="{{.Image}}" alt="{{.Image}}">
+    </div>
+
+    <div id="InfosPerso">
+        <div id="insfos">
+            <h2 style="color: black;"><u>NOM</u>: {{.Nom}}</h2> <br><br>
+            <h3 style="color: black;"><u>CAPACITES</u>:</h3>
+            <br>
+            <p> {{range .Capacites}}{{.}}<br><br>{{end}}</p><br>
+        </div> 
+    </div>
+    
+</div>
+{{end}}
+</body>
+</html>
+{{end}}

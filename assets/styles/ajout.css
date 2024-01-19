@@ -188,8 +188,7 @@ body {
   }
 
   #imgPerso > label> img{
-    width: 10vw;
-    height:25vh;
+    height:27vh;
     cursor: pointer;
     transition: transform 0.3s;
   }

@@ -20,13 +20,14 @@ func InitServe() {
 	http.HandleFunc("/form", controller.FormHandler)
 	http.HandleFunc("/404", controller.NotFoundHandler)
 	http.HandleFunc("/notFound", controller.RessourceNotFoundHandler)
-
+	http.HandleFunc("/story", controller.StoryHandler)
 	http.HandleFunc("/myList", controller.MyListHandler)
 	http.HandleFunc("/ajout_perso", controller.AjouterPersoHandler)
 	http.HandleFunc("/confirmation", controller.ConfirmationHandler)
 	http.HandleFunc("/confirmationSup", controller.ConfirmationSupHandler)
 	http.HandleFunc("/supprimer", controller.SupprimerPersoHandler)
 	http.HandleFunc("/modifier", controller.ModifierPersoHandler)
+	http.HandleFunc("/search", controller.RecherchePersonnageHandler)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
 		inittemplate.Temp.ExecuteTemplate(w, "404", nil)
