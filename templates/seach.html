@@ -10,8 +10,40 @@
 </head>
 
 <body>
-<h2>Résultats de la recherche pour "{{.SearchTerm}}"</h2>
-{{range .Resultats}}
+	<header>
+		<div class="SYNOPSIS">
+			<div id="SynopsisImage">
+				<a href="/form"> <img src="../assets/image/Sans titre.png" alt="logo-netflix-1536"> </a>
+			</div>
+
+			<a href="/form">
+				<div class="Start">
+					<span>créer </span>
+					<span>un nouveau</span>
+					<span>personnage</span>
+					<img src="../assets/icons/loupe.png" alt="loupe">
+				</div>
+			</a>
+
+			<a href="/connexion">
+				<div id="infosProfil">
+					<div id="imageProfil">
+						<img src="/assets/image/masque.png" alt="Profil_Icon" width="50px" height="50px">
+					</div>
+					<p>QUITTER</p>
+				</div>
+			</a>
+		</div>
+	</header>
+
+	<div id="HEAD">
+		<div class="content" style="display: flex; justify-content: center;align-items: center;margin-bottom: 10px;">
+			<h1 style="color: rgb(255, 235, 235); ">Résultats de la recherche pour "{{.SearchTerm}}"</h1>
+		</div>
+
+		<div class="SomePerso">
+
+			{{range .Resultats}}
 <div id="personnage">
     <div id="imagePerso">
         <img src="{{.Image}}" alt="{{.Image}}">
@@ -28,6 +60,11 @@
     
 </div>
 {{end}}
+
+		</div>
+	</div>
+
 </body>
+
 </html>
 {{end}}

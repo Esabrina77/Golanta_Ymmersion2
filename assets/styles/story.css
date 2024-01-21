@@ -5,52 +5,105 @@
 
 
 @font-face {
-  font-family: MontserratReg;
-  src: url('');
-}
-
-@font-face {
   font-family: Medieval;
   src: url('/assets/fonts/MedievalSharp-Regular.ttf');
 }
 
-body {
-  background-image: url('/assets/image/KoloLanta.jpeg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: repeat;
-  position: relative;
-  backdrop-filter: blur(10px);
-  background-size: 130%;
+body{
+  font-family: Medieval;
+background-color: rgba(0, 0, 0, 0.92);
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+position: relative;
 }
-
-.allimages {
+.lien{
+  position: absolute;
   display: flex;
-  flex-wrap: wrap;
-  max-width: 800px; /* Ajustez la largeur maximale selon vos besoins */
+  top: 0;
+  right: 0;
+  border-style: groove;
+  border-radius: 70% 45% 90%;
+  padding: 5px;
+  background-color: #000000;
+  margin: 10px;
+  transition: transform 1s ease;
+ 
+}
+a{
+  font-size: 15px;
+  text-decoration: none;
 }
 
-.product {
-  flex: 0 0 25%; /* Ajustez la largeur des images selon vos besoins */
-  max-width: 25%; /* Ajustez la largeur maximale des images selon vos besoins */
-  box-sizing: border-box;
-  padding: 10px;
-  /* Ajoutez d'autres styles pour les images */
+.lien:hover{
+  color: #b68f11;
+  transform: scale(1.1);
 }
 
-
-
-.rotate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* ajustez la hauteur selon vos besoins */
+.content {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
 }
 
-.rotate p {
-  transform: rotate(-90deg);
-  white-space: nowrap;
+h1 {
+color: #3b5998;
 }
 
+.SomePerso {
+display: flex;
+flex-direction: column;
+width: 800px;
+height: fit-content;
+min-height: 77vh;
+margin: 50px;
+filter: brightness(90%);
+background-image: url('/assets/image/parcheminjpeg.jpeg');
+background-size: cover;
+background-position: center;
+font-size: calc(0.7em + 0.7rem);
+padding: 20px;
+border-radius: 45px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+#personnage-container {
+text-align: center;
+}
 
+img {
+max-width: 25vh;
+height: auto;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+img:hover {
+transform: scale(1.1);
+}
+
+p {
+color: #333;
+line-height: 1.6;
+}
+
+.navigation-buttons {
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+
+button {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+background-color: #b68f11;
+color: #fff;
+border: none;
+border-radius: 45% 12% 70%;
+}
+
+button:hover {
+background-color: #b26105;
+}
